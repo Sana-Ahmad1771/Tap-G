@@ -5,16 +5,81 @@
   --foreground: #171717;
 }
 
+/* Custom colors and fonts */
+:root {
+  --primary: #2463A5;
+  --secondary: #dcd5ff;
+  --dark-secondary: #8974eb66;
+  --dark-primary: #8974eb00;
+  --black: #000000;
+  --dark-black: #191919;
+  --light-black: #333333;
+  --white: #ffffff;
+  --neutral-50: #fafafa;
+  --neutral-light: #e6e6e6;
+ --font-monosansnarrow: "MonaSansNarrow", serif;
+  --font-mononarrowbold: "MonaSansNarrowBold", Impact, serif;
+  
+  --site-header-height: 0px; /* updated by Header component */
+}
+@theme inline {
+  --color-primary: #2463A5;
+  --color-secondary: #dcd5ff;
+  --color-dark-secondary: #8974eb66;
+  --color-dark-primary: #8974eb00;
+  --color-black: #000000;
+  --color-dark-black: #191919;
+  --color-light-black: #333333;
+  --color-white: #ffffff;
+  --color-neutral-50: #fafafa;
+  --color-neutral-light: #e6e6e6;
+
+  /* fonts */
+  --font-monosansnarrow: "MonaSansNarrow", serif;
+  --font-mononarrowbold: "MonaSansNarrowBold", serif;
+  --font-monosans: "Mona Sans", Arial, sans-serif;
+  --font-monosansregular: "monosansregular", Arial, sans-serif;
+}
+
+/* ensure page content starts after fixed header */
+body {
+  padding-top: var(--site-header-height);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
+@font-face {
+  font-family: "MonaSansNarrow";
+  src: url("/fonts/Mona-Sans-BlackNarrow.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MonaSansNarrowBold";
+  src: url("/fonts/Mona-Sans-BoldNarrow.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "monosans";
+  src: url("/fonts/Mona-Sans.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "monosansregular";
+  src: url("/fonts/Mona-Sans-RegularNarrow.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #ffffff;
     --foreground: #ededed;
   }
 }
@@ -24,3 +89,4 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/*  */

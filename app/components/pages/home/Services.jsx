@@ -1,0 +1,304 @@
+
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiArrowUpRight } from "react-icons/fi";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+const DISABLE_MOTION = true; // debug toggle
+
+const MotionAP = DISABLE_MOTION
+  ? ({ children }) => <>{children}</>
+  : AnimatePresence;
+
+gsap.registerPlugin(ScrollTrigger);
+
+/* ================================
+   WORD BY WORD PARALLAX COMPONENT
+================================ */
+const ParallaxSplitText = ({ text, className = "", isGrey = false }) => {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const words = el.querySelectorAll(".word");
+
+    const tl = gsap.fromTo(
+      words,
+      { yPercent: 120, opacity: 0 },
+      {
+        yPercent: 0,
+        opacity: 1,
+        ease: "none",
+        stagger: 0.08,
+        scrollTrigger: {
+          trigger: el,
+          start: "top 95%",
+          end: "top 70%",
+          scrub: 1.2,
+        },
+      }
+    );
+
+    return () => tl.kill();
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className={`flex flex-wrap leading-[1.05] ${className}`}
+    >
+      {text.split(" ").map((word, i) => (
+        <span
+          key={i}
+          className="relative overflow-hidden inline-block mr-[0.2em]"
+        >
+          <span
+            className={`word inline-block will-change-transform ${
+              isGrey ? "text-[#8d8d8d]" : "text-white"
+            }`}
+          >
+            {word}
+          </span>
+        </span>
+      ))}
+    </div>
+  );
+};
+
+/* ================================
+   TAP-G SERVICES
+================================ */
+const services = [
+  {
+    id: "01",
+    title: "Food Delivery",
+    description:
+      "From delicious local meals and Korean favorites to burgers, snacks, and refreshing drinks. Discover food you love and have it delivered with ease.",
+    image: "/images/tapscroll1.png",
+  },
+  {
+    id: "02",
+    title: "Groceries & Essentials",
+    description:
+      "Your everyday essentials, all in one place. Find fresh produce, milk, packaged goods, snacks, and daily necessities without the extra trip.",
+    image: "/images/service-grocery.jpg",
+  },
+  {
+    id: "03",
+    title: "Campus Delivery",
+    description:
+      "Making student life easier around Inje University. Get the food and everyday essentials you need, conveniently delivered closer to campus.",
+    image: "/images/service-campus.jpg",
+  },
+  {
+    id: "04",
+    title: "Local Discovery",
+    description:
+      "Explore neighborhood shops, hidden local favorites, and businesses across Gimhae. Discover more of what's around you.",
+    image: "/images/service-discovery.jpg",
+  },
+  {
+    id: "05",
+    title: "Express Delivery",
+    description:
+      "A simpler way to get what you need, when you need it. Convenient delivery designed around your location and everyday schedule.",
+    image: "/images/service-express.jpg",
+  },
+  {
+    id: "06",
+    title: "Community Connection",
+    description:
+      "Connecting students, local businesses, and the wider Gimhae community through local experiences, discovery, and everyday convenience.",
+    image: "/images/service-community.jpg",
+  },
+];
+
+const Services = () => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check for mobile to disable heavy mouse-tracking effects
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const handleMouseMove = (e) => {
+    if (isMobile) return;
+
+    const rect = e.currentTarget.getBoundingClientRect();
+
+    setMouse({
+      x: (e.clientX - rect.left) / rect.width - 0.5,
+      y: (e.clientY - rect.top) / rect.height - 0.5,
+    });
+  };
+
+  return (
+    <section className="bg-black rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[3rem] text-white py-10 md:py-24 lg:py-32 px-4 md:px-12 lg:px-20 overflow-hidden">
+      <div className="max-w-[1500px] mx-auto border-t border-white/20">
+
+        {/* HEADER SECTION */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16 md:mb-24 pt-6">
+          <div className="max-w-9xl">
+            <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-white flex items-center gap-2 mb-6">
+              <span className="text-sm">✱</span> What We Offer
+            </p>
+
+            <h2 className="text-[14vw] md:text-[8rem] leading-[0.9] font-black uppercase tracking-tighter">
+              <ParallaxSplitText
+                text="Made For"
+                className="block"
+              />
+
+              <ParallaxSplitText
+                text="Everyday Life"
+                className="opacity-40 block"
+              />
+            </h2>
+          </div>
+
+          <a
+            href="#"
+            className="group relative flex items-center gap-3 bg-primary text-white px-8 py-4 md:px-10 md:py-5 rounded-full text-[10px] md:text-[11px] font-bold uppercase tracking-widest overflow-hidden transition-all duration-300"
+          >
+            <span className="relative z-10">Explore TAP-G</span>
+
+            <span className="text-lg relative z-10 group-hover:rotate-45 transition-transform duration-500">
+              ✦
+            </span>
+
+            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+          </a>
+        </div>
+
+        {/* SERVICES LIST */}
+        <div className="border-t border-white/20">
+          {services.map((service, index) => {
+            const isActive = hoveredIndex === index;
+
+            return (
+              <div
+                key={service.id}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                onMouseMove={handleMouseMove}
+                className="group relative border-b border-white/20 py-8 md:py-12 lg:py-16 cursor-pointer"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-12 items-center gap-4 md:gap-6 relative z-10">
+
+                  {/* NUMBER */}
+                  <div className="md:col-span-1 text-white/40 font-bold text-sm md:text-base">
+                    ({service.id})
+                  </div>
+
+                  {/* TITLE */}
+                  <div className="md:col-span-7 relative flex items-center min-h-[60px] md:min-h-[120px]">
+                    <div className="service-title-wrap relative z-20 w-full">
+                      <h2
+                        className="text-4xl sm:text-5xl md:text-[4.5rem] lg:text-[5rem] font-black uppercase tracking-tighter transition-opacity duration-500"
+                        style={{
+                          opacity: isActive || isMobile ? 1 : 0.5,
+                        }}
+                      >
+                        {service.title}
+                      </h2>
+
+                      {/* MASKED IMAGE TEXT */}
+                      {!isMobile && (
+                        <AnimatePresence>
+                          {isActive && (
+                            <motion.h2
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              exit={{ opacity: 0 }}
+                              className="absolute inset-0 text-4xl sm:text-5xl md:text-[4.5rem] lg:text-[5rem] font-black uppercase tracking-tighter"
+                              style={{
+                                backgroundImage: `url(${service.image})`,
+                                backgroundSize: "cover",
+                                backgroundPosition: `${50 + mouse.x * 120}% ${
+                                  50 + mouse.y * 120
+                                }%`,
+                                WebkitBackgroundClip: "text",
+                                WebkitTextFillColor: "transparent",
+                                pointerEvents: "none",
+                                zIndex: 21,
+                              }}
+                            >
+                              {service.title}
+                            </motion.h2>
+                          )}
+                        </AnimatePresence>
+                      )}
+                    </div>
+
+                    {/* FLOATING IMAGE CARD */}
+                    {!isMobile && (
+                      <AnimatePresence>
+                        {isActive && (
+                          <motion.div
+                            className="absolute pointer-events-none hidden md:block"
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{
+                              scale: 1,
+                              opacity: 1,
+                              x: mouse.x * 150 + 100,
+                              y: mouse.y * 100,
+                              rotateX: mouse.y * -20,
+                              rotateY: mouse.x * 20,
+                            }}
+                            exit={{ scale: 0, opacity: 0 }}
+                            style={{
+                              left: "20%",
+                              width: "15rem",
+                              height: "18rem",
+                              zIndex: 0,
+                              perspective: "1000px",
+                              transformStyle: "preserve-3d",
+                            }}
+                          >
+                            <img
+                              src={service.image}
+                              className="rounded-3xl w-full h-full object-cover shadow-2xl brightness-90"
+                              alt={service.title}
+                            />
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    )}
+                  </div>
+
+                  {/* DESCRIPTION */}
+                  <div className="md:col-span-3">
+                    <p className="text-xs md:text-sm font-light text-white/60 md:text-white/80 leading-relaxed max-w-sm md:max-w-[250px]">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  {/* ARROW */}
+                  <div className="md:col-span-1 flex justify-end">
+                    <div className="w-10 h-10 md:w-14 md:h-14 border border-white/20 rounded-full flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all duration-500">
+                      <FiArrowUpRight className="text-lg md:text-2xl" />
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Services;

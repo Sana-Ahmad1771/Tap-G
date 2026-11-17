@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="140 280 310 330" width="310" height="330">
+  <defs>
+    <radialGradient id="tapCircleGrad" cx="42%" cy="40%" r="60%" fx="35%" fy="35%">
+      <stop offset="0%" stop-color="#3A6BFF" />
+      <stop offset="70%" stop-color="#2554E8" />
+      <stop offset="100%" stop-color="#4D7BFF" stop-opacity="0.92" />
+    </radialGradient>
+    <filter id="softGlow" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <path d="M 220.86 515.48 A 92 92 0 0 1 204.64 497.77" fill="none" stroke="#7EA1FF" stroke-width="11" stroke-linecap="round" opacity="0.85" />
+  <path d="M 192.50 473.43 A 92 92 0 0 1 223.36 372.50" fill="none" stroke="#6C93FF" stroke-width="11" stroke-linecap="round" opacity="0.9" />
+  <path d="M 245.54 359.70 A 92 92 0 0 1 328.75 366.98" fill="none" stroke="#6C93FF" stroke-width="11" stroke-linecap="round" opacity="0.9" />
+  <path d="M 348.37 383.44 A 92 92 0 0 1 368.87 421.19" fill="none" stroke="#7EA1FF" stroke-width="11" stroke-linecap="round" opacity="0.85" />
+  <path d="M 192.31 523.96 A 118 118 0 0 1 198.03 360.12" fill="none" stroke="#A3BCFF" stroke-width="10" stroke-linecap="round" opacity="0.7" />
+  <path d="M 224.60 340.81 A 118 118 0 0 1 387.80 397.01" fill="none" stroke="#A3BCFF" stroke-width="10" stroke-linecap="round" opacity="0.7" />
+  <path d="M 183.65 552.01 A 144 144 0 1 1 418.42 405.31" fill="none" stroke="#D0DFFF" stroke-width="9" stroke-linecap="round" opacity="0.55" />
+  <circle cx="280" cy="445" r="74" fill="url(#tapCircleGrad)" filter="url(#softGlow)" />
+  <g fill="none" stroke="#13123A" stroke-linecap="round" stroke-linejoin="round" opacity="0.96">
+    <path d="M 251 445 L 341 445 M 296 445 L 296 558" stroke-width="38" />
+  </g>
+  <g fill="none" stroke="#1B2A7A" stroke-linecap="round" stroke-linejoin="round" opacity="0.45">
+    <path d="M 251 445 L 341 445 M 296 445 L 296 505" stroke-width="38" />
+  </g>
+</svg>
