@@ -41,7 +41,7 @@ export const metadata = {
     siteName: "Sinnex Tech",
     images: [
       {
-        url: "https://sinnextechnew.vercel.app/og/home.png", // /public/og/home.png
+        url: "https://tap-g.vercel.app/og/home.png", // /public/og/home.png
         width: 1200,
         height: 630,
         alt: "Sinnex Tech Healthcare Technology",
