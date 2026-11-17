@@ -1,3 +1,4 @@
+
 import Script from "next/script";
 import ClientScroll from "./components/pages/home/ClientScroll.jsx";
 import HeroLayout from "./components/pages/home/HeroLayout.jsx";
@@ -11,54 +12,54 @@ import CTA from "./components/pages/home/CTA.jsx";
 import Footer from "./components/common/Footer.jsx";
 
 export const metadata = {
-  title: "Sinnex Tech | Where Technology Meets Healthcare",
+  title: "TAP-G | Connecting Local Life in Gimhae",
 
   description:
-    "Sinnex Tech delivers innovative healthcare technology, custom software, and digital solutions that help healthcare businesses grow and modernize.",
+    "TAP-G connects Gimhae's local stores, university students, and everyday needs through one convenient local platform. Discover local food, groceries, neighborhood businesses, and more.",
 
   keywords: [
-    "Sinnex Tech",
-    "healthcare technology",
-    "healthcare IT solutions",
-    "medical software development",
-    "digital healthcare services",
-    "health tech company",
-    "healthcare web development",
-    "custom healthcare software",
-    "technology meets healthcare",
+    "TAP-G",
+    "Gimhae",
+    "local platform Gimhae",
+    "Inje University",
+    "Gimhae local businesses",
+    "local food delivery",
+    "grocery delivery Gimhae",
+    "campus delivery",
+    "local discovery",
+    "Gimhae community",
   ],
 
   alternates: {
-    canonical: "https://sinnextech.com",
+    canonical: "https://tap-g.vercel.app",
   },
 
-  /* Open Graph */
+  // Open Graph
   openGraph: {
-    title: "Sinnex Tech | Where Technology Meets Healthcare",
+    title: "TAP-G | Connecting Local Life in Gimhae",
     description:
-      "Empowering healthcare organizations with innovative technology, secure software, and digital transformation solutions.",
-    url: "https://sinnextech.com",
-    siteName: "Sinnex Tech",
+      "Discover local stores, food, groceries, and everyday essentials around Gimhae with TAP-G.",
+    url: "https://tap-g.vercel.app",
+    siteName: "TAP-G",
     images: [
       {
-        url: "https://tap-g.vercel.app/og/home.png", // /public/og/home.png
+        url: "https://tap-g.vercel.app/og/home.png",
         width: 1200,
         height: 630,
-        alt: "Sinnex Tech Healthcare Technology",
+        alt: "TAP-G — Connecting Local Life in Gimhae",
       },
     ],
     locale: "en_US",
     type: "website",
   },
 
-  /* Twitter Card */
+  // Twitter Card
   twitter: {
     card: "summary_large_image",
-    site: "@SinnexTech",
-    title: "Sinnex Tech | Where Technology Meets Healthcare",
+    title: "TAP-G | Connecting Local Life in Gimhae",
     description:
-      "Innovative healthcare technology, medical software, and digital solutions by Sinnex Tech.",
-    images: ["https://sinnextechnew.vercel.app/og/home.png"],
+      "Connecting local stores, university students, and everyday life across Gimhae.",
+    images: ["https://tap-g.vercel.app/og/home.png"],
   },
 };
 
@@ -70,7 +71,7 @@ const breadcrumb = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://sinnextech.com",
+      item: "https://tap-g.vercel.app",
     },
   ],
 };
@@ -80,53 +81,71 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://sinnextech.com/#organization",
-      name: "Sinnex Tech",
-      url: "https://sinnextech.com",
-      logo: "https://sinnextech.com/logo.png",
-      sameAs: [
-        "https://www.linkedin.com/company/sinnextech",
-        "https://twitter.com/SinnexTech",
-      ],
+      "@id": "https://tap-g.vercel.app/#organization",
+      name: "TAP-G",
+      url: "https://tap-g.vercel.app",
+      logo: "https://tap-g.vercel.app/images/Tap-icon.svg",
     },
     {
       "@type": "WebSite",
-      "@id": "https://sinnextech.com/#website",
-      url: "https://sinnextech.com",
-      name: "Sinnex Tech",
-      publisher: { "@id": "https://sinnextech.com/#organization" },
+      "@id": "https://tap-g.vercel.app/#website",
+      url: "https://tap-g.vercel.app",
+      name: "TAP-G",
+      publisher: {
+        "@id": "https://tap-g.vercel.app/#organization",
+      },
+      description:
+        "Connecting Gimhae's local stores, university students, and everyday needs.",
+      inLanguage: "en",
     },
     {
       "@type": "FAQPage",
       mainEntity: [
         {
           "@type": "Question",
-          name: "What services does Sinnex Tech provide?",
+          name: "What is TAP-G?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Sinnex Tech provides healthcare IT solutions, medical software, digital transformation, and technology services for healthcare businesses.",
+            text: "TAP-G is a local platform concept designed to connect Gimhae's neighborhood businesses, university students, and everyday needs in one place.",
           },
         },
         {
           "@type": "Question",
-          name: "Where is Sinnex Tech located?",
+          name: "What can I find on TAP-G?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Sinnex Tech serves clients worldwide, focusing on healthcare organizations.",
+            text: "TAP-G is designed to help people discover local food, restaurants, cafes, groceries, daily essentials, neighborhood stores, and experiences around Gimhae.",
           },
         },
         {
           "@type": "Question",
-          name: "How can I contact Sinnex Tech?",
+          name: "Is TAP-G for Inje University students?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "You can contact Sinnex Tech via the Contact page or email info@sinnextech.com.",
+            text: "TAP-G is being designed with students in mind, especially those living and studying around Inje University.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How does delivery work?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "TAP-G aims to make food and everyday essentials easier to access through convenient local delivery. Delivery availability and service areas will depend on the services introduced as the platform develops.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can local businesses join TAP-G?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "TAP-G aims to connect local businesses with students and residents in Gimhae. Interested local businesses can contact the team to discuss potential opportunities.",
           },
         },
       ],
     },
   ],
 };
+
 export default function Home() {
   return (
     <div className="bg-[#f3f3f3]">
