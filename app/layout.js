@@ -1,6 +1,10 @@
+
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
+import { Suspense } from "react";
+
 import "./globals.css";
+
 import ClientErrorLogger from "./components/ClientErrorLogger";
 import Header from "./components/common/Header";
 import Preloader from "./components/common/Preloader";
@@ -15,31 +19,32 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-/* ============================
-   ✅ Global SEO Metadata
-   ============================ */
+// ==========================================
+// GLOBAL SEO METADATA
+// ==========================================
+
 export const metadata = {
-  metadataBase: new URL("https://sinnextech.com"),
+  metadataBase: new URL("https://tap-g.vercel.app"),
 
   title: {
-    default: "Sinnex Tech | Healthcare Technology & Digital Solutions",
-    template: "%s | Sinnex Tech",
+    default: "TAP-G | Connecting Local Life in Gimhae",
+    template: "%s | TAP-G",
   },
 
   description:
-    "Sinnex Tech delivers innovative healthcare technology, digital transformation, and IT solutions designed to improve efficiency, care, and business growth.",
+    "TAP-G connects Gimhae's local stores, university students, and everyday needs through one convenient local platform. Discover local food, groceries, neighborhood businesses, and more.",
 
   keywords: [
-    "Sinnex Tech",
-    "healthcare technology company",
-    "healthcare IT solutions",
-    "medical software solutions",
-    "digital healthcare services",
-    "health tech company",
-    "healthcare web development",
-    "custom healthcare software",
-    "IT solutions for healthcare",
-    "technology meets healthcare",
+    "TAP-G",
+    "Gimhae",
+    "local platform Gimhae",
+    "Inje University",
+    "Gimhae local businesses",
+    "local food delivery",
+    "grocery delivery Gimhae",
+    "local discovery",
+    "campus delivery",
+    "Gimhae community",
   ],
 
   robots: {
@@ -48,44 +53,49 @@ export const metadata = {
   },
 
   alternates: {
-    canonical: "https://sinnextech.com",
+    canonical: "https://tap-g.vercel.app",
   },
 
-  /*  Open Graph (Facebook, LinkedIn, WhatsApp) */
+  // Open Graph
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://sinnextech.com",
-    siteName: "Sinnex Tech",
-    title: "Sinnex Tech | Healthcare Technology & Digital Solutions",
+    url: "https://tap-g.vercel.app",
+    siteName: "TAP-G",
+    title: "TAP-G | Connecting Local Life in Gimhae",
     description:
-      "Empowering healthcare through innovative technology, software solutions, and digital transformation services.",
+      "Discover local stores, food, groceries, and everyday essentials around Gimhae with TAP-G.",
+
     images: [
       {
-        url: "https://sinnextechnew.vercel.app/og/home.png",  // place this image in /public/og/home.png
+        url: "/og/home.png",
         width: 1200,
         height: 630,
-        alt: "Sinnex Tech - Healthcare Technology Solutions",
+        alt: "TAP-G — Connecting Local Life in Gimhae",
       },
     ],
   },
 
-  /* ✅ Twitter Card */
+  // Twitter Card
   twitter: {
     card: "summary_large_image",
-    title: "Sinnex Tech | Healthcare Technology Solutions",
+    title: "TAP-G | Connecting Local Life in Gimhae",
     description:
-      "Innovative healthcare technology, digital solutions, and IT services by Sinnex Tech.",
+      "Connecting local stores, university students, and everyday life across Gimhae.",
     images: ["/og/home.png"],
   },
 
-  /* ✅ Favicons */
+  // Favicons
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
 };
+
+// ==========================================
+// ROOT LAYOUT
+// ==========================================
 
 export default function RootLayout({ children }) {
   return (
@@ -95,17 +105,23 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
       >
         <Preloader />
-        {/* Client-side logger to capture runtime errors and send them to the dev server */}
-        <Header />
+
+        {/* Client-side error logger */}
         <ClientErrorLogger />
+
+        {/* Header wrapped in Suspense to support usePathname() */}
+        <Suspense fallback={null}>
+          <Header />
+        </Suspense>
+
         {children}
 
-
-         {/* ✅ Google Analytics (replace ID later) */}
+        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"
           strategy="afterInteractive"
         />
+
         <Script
           id="ga-setup"
           strategy="afterInteractive"
