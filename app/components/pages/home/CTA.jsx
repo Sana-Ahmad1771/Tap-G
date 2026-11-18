@@ -13,15 +13,15 @@ export default function CTA() {
 
   // Each grid box has its own image
   const gridMedia = [
-    { src: "/images/service1.jfif", alt: "Food delivery" },
-    { src: "/images/service2.jfif", alt: "Groceries and essentials" },
-    { src: "/images/service3.jfif", alt: "Drinks and beverages" },
+    { src: "/images/service1.jpg", alt: "Food delivery" },
+    { src: "/images/service2.jpg", alt: "Groceries and essentials" },
+    { src: "/images/service3.jpg", alt: "Drinks and beverages" },
     { src: "/images/tap-hero.png", alt: "Everyday essentials" },
     { src: "/images/case1.png", alt: "TAP-G local delivery" },
     { src: "/images/tap-hero2.png", alt: "Shopping and groceries" },
-    { src: "/images/service4.jfif", alt: "Fresh fruits and vegetables" },
+    { src: "/images/service4.jpg", alt: "Fresh fruits and vegetables" },
     { src: "/images/tap-hero3.png", alt: "Local delivery rider" },
-    { src: "/images/service5.jfif", alt: "Express delivery" },
+    { src: "/images/service5.jpg", alt: "Express delivery" },
   ];
 
   useEffect(() => {
