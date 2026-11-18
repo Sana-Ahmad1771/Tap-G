@@ -1,28 +1,24 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-
-const DISABLE_MOTION = true; // toggle globally for debugging
-const MotionAP = DISABLE_MOTION
-  ? ({ children }) => <>{children}</>
-  : AnimatePresence;
 import { FiArrowUpRight } from "react-icons/fi";
-
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
 /* ================================
-    WORD BY WORD PARALLAX COMPONENT
+   WORD BY WORD PARALLAX COMPONENT
 ================================ */
 const ParallaxSplitText = ({ text, className = "", isGrey = false }) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
     const el = containerRef.current;
+    if (!el) return;
+
     const words = el.querySelectorAll(".word");
 
     const tl = gsap.fromTo(
@@ -39,10 +35,13 @@ const ParallaxSplitText = ({ text, className = "", isGrey = false }) => {
           end: "top 70%",
           scrub: 1.2,
         },
-      }
+      },
     );
 
-    return () => tl.kill();
+    return () => {
+      tl.scrollTrigger?.kill();
+      tl.kill();
+    };
   }, []);
 
   return (
@@ -68,48 +67,51 @@ const ParallaxSplitText = ({ text, className = "", isGrey = false }) => {
   );
 };
 
+/* ================================
+   TAP-G SERVICES
+================================ */
 const services = [
   {
     id: "01",
-    title: "Design",
+    title: "Food Delivery",
     description:
-      "Translating brand strategy into compelling visuals that captivate audiences and communicate your message with clarity and impact.",
-    image: "/images/designout.jpg",
+      "From delicious local meals and Korean favorites to burgers, snacks, and refreshing drinks. Discover food you love and have it delivered with ease.",
+    image: "/images/service1.png",
   },
   {
     id: "02",
-    title: "Identity",
+    title: "Groceries & Essentials",
     description:
-      "Building distinctive visual and verbal systems that authentically express your brand's core values, personality, and unique position in the market.",
-    image: "/images/hero-4.jpg",
+      "Your everyday essentials, all in one place. Find fresh produce, milk, packaged goods, snacks, and daily necessities without the extra trip.",
+    image: "/images/tapscroll2.png",
   },
   {
     id: "03",
-    title: "Strategy",
+    title: "Campus Delivery",
     description:
-      "Crafting a clear, actionable roadmap that defines your brand's purpose, vision, and competitive positioning for long-term market success.",
-    image: "/images/project2.jpg",
+      "Making student life easier around Inje University. Get the food and everyday essentials you need, conveniently delivered closer to campus.",
+    image: "/images/service-campus.jpg",
   },
   {
     id: "04",
-    title: "Rebranding",
+    title: "Local Discovery",
     description:
-      "Transforming existing brands with renewed strategies, modern design approaches, and refreshed communication that resonates with contemporary audiences.",
-    image: "/images/hero-4.jpg",
+      "Explore neighborhood shops, hidden local favorites, and businesses across Gimhae. Discover more of what's around you.",
+    image: "/images/service-discovery.jpg",
+  },
+  {
+    id: "05",
+    title: "Express Delivery",
+    description:
+      "A simpler way to get what you need, when you need it. Convenient delivery designed around your location and everyday schedule.",
+    image: "/images/service-express.jpg",
   },
   {
     id: "06",
-    title: "Website Development",
+    title: "Community Connection",
     description:
-      "Creating responsive, high-performance websites that deliver seamless user experiences while accurately reflecting your brand's identity and objectives.",
-    image: "/images/faq6.avif",
-  },
-  {
-    id: "07",
-    title: "Search Engine Optimization (SEO)",
-    description:
-      "Implementing strategic optimization techniques to improve online visibility, drive organic traffic, and enhance search engine rankings effectively.",
-    image: "/images/faq2.jpg",
+      "Connecting students, local businesses, and the wider Gimhae community through local experiences, discovery, and everyday convenience.",
+    image: "/images/service-community.jpg",
   },
 ];
 
@@ -122,13 +124,16 @@ const Services = () => {
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
+
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   const handleMouseMove = (e) => {
     if (isMobile) return;
+
     const rect = e.currentTarget.getBoundingClientRect();
+
     setMouse({
       x: (e.clientX - rect.left) / rect.width - 0.5,
       y: (e.clientY - rect.top) / rect.height - 0.5,
@@ -136,9 +141,9 @@ const Services = () => {
   };
 
   return (
-    <section className="bg-[#080808]  rounded-4xl text-white py-16 md:py-32 px-4 md:px-12 lg:px-20 overflow-hidden">
+    <section className="bg-[#080808] rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[3rem] text-white py-16 md:py-32 px-4 md:px-12 lg:px-20 overflow-hidden">
       <div className="max-w-[1500px] mx-auto border-t border-white/20">
-        {/* --- HEADER SECTION --- */}
+        {/* HEADER SECTION */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16 md:mb-24 pt-6">
           <div className="max-w-9xl">
             <motion.p
@@ -147,44 +152,40 @@ const Services = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-[10px] uppercase tracking-[0.2em] font-bold text-white flex items-center gap-2 mb-6"
             >
-              <span className="text-sm">✱</span> Our Services
+              <span className="text-sm">✱</span> What We Offer
             </motion.p>
-            <h1 className=" text-[14vw] md:text-[8rem] leading-[0.9] font-black uppercase tracking-tighter">
-              <motion.span
-                initial={{ opacity: 0, x: -40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="block"
-              >
-                What We Bring
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-                className="opacity-50 block"
-              >
-                To Your Brand
-              </motion.span>
+
+            <h1 className="text-[14vw] md:text-[8rem] leading-[0.9] font-black uppercase tracking-tighter">
+              <ParallaxSplitText text="Made For" className="block" />
+
+              <ParallaxSplitText
+                text="Everyday Life"
+                className="opacity-40 block"
+              />
             </h1>
           </div>
 
-          <motion.button
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            href="/about"
-            className="group relative flex items-center gap-3 bg-primary text-white px-8 py-4 md:px-10 md:py-5 rounded-full text-[10px] md:text-[11px] font-bold uppercase tracking-widest overflow-hidden transition-all duration-300"
           >
-            <span className="relative z-10">About Us</span>
-            <span className="text-lg relative z-10 group-hover:rotate-45 transition-transform duration-500">
-              ✦
-            </span>
-            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-          </motion.button>
+            <Link
+              href="/about"
+              className="group relative flex items-center gap-3 bg-primary text-white px-8 py-4 md:px-10 md:py-5 rounded-full text-[10px] md:text-[11px] font-bold uppercase tracking-widest overflow-hidden transition-all duration-300"
+            >
+              <span className="relative z-10">About TAP-G</span>
+
+              <span className="text-lg relative z-10 group-hover:rotate-45 transition-transform duration-500">
+                ✦
+              </span>
+
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+            </Link>
+          </motion.div>
         </div>
 
-        {/* --- SERVICES LIST --- */}
+        {/* SERVICES LIST */}
         <div className="border-t border-white/20">
           {services.map((service, index) => {
             const isActive = hoveredIndex === index;
@@ -198,22 +199,24 @@ const Services = () => {
                 className="group relative border-b border-white/20 py-8 md:py-12 lg:py-16 cursor-pointer"
               >
                 <div className="grid grid-cols-1 md:grid-cols-12 items-center gap-4 md:gap-6 relative z-10">
-                  {/* 1. Number */}
+                  {/* NUMBER */}
                   <div className="md:col-span-1 text-white/40 font-bold text-sm md:text-base">
                     ({service.id})
                   </div>
 
-                  {/* 2. Title Section */}
+                  {/* TITLE */}
                   <div className="md:col-span-7 relative flex items-center min-h-[60px] md:min-h-[120px]">
                     <div className="service-title-wrap relative z-20 w-full">
                       <h2
                         className="text-4xl sm:text-5xl md:text-[4.5rem] lg:text-[5rem] font-black uppercase tracking-tighter transition-opacity duration-500"
-                        style={{ opacity: isActive || isMobile ? 1 : 0.5 }}
+                        style={{
+                          opacity: isActive || isMobile ? 1 : 0.5,
+                        }}
                       >
                         {service.title}
                       </h2>
 
-                      {/* Masked Reveal (Desktop Only) */}
+                      {/* MASKED IMAGE TEXT */}
                       {!isMobile && (
                         <AnimatePresence>
                           {isActive && (
@@ -223,12 +226,21 @@ const Services = () => {
                               exit={{ opacity: 0 }}
                               className="absolute inset-0 text-4xl sm:text-5xl md:text-[4.5rem] lg:text-[5rem] font-black uppercase tracking-tighter"
                               style={{
-                                backgroundImage: `url(${service.image})`,
+                                backgroundImage: `
+    linear-gradient(
+      135deg,
+      rgba(8, 8, 8, 0.48) 0%,
+      rgba(137, 116, 235, 0.38) 50%,
+      rgba(8, 8, 8, 0.52) 100%
+    ),
+    url(${service.image})
+  `,
                                 backgroundSize: "cover",
                                 backgroundPosition: `${50 + mouse.x * 120}% ${
                                   50 + mouse.y * 120
                                 }%`,
                                 WebkitBackgroundClip: "text",
+                                backgroundClip: "text",
                                 WebkitTextFillColor: "transparent",
                                 pointerEvents: "none",
                                 zIndex: 21,
@@ -241,7 +253,7 @@ const Services = () => {
                       )}
                     </div>
 
-                    {/* 3. Floating Image Card (Desktop Only) */}
+                    {/* FLOATING IMAGE CARD */}
                     {!isMobile && (
                       <AnimatePresence>
                         {isActive && (
@@ -277,14 +289,14 @@ const Services = () => {
                     )}
                   </div>
 
-                  {/* 4. Description */}
+                  {/* DESCRIPTION */}
                   <div className="md:col-span-3">
                     <p className="text-xs md:text-sm font-light text-white/60 md:text-white/80 leading-relaxed max-w-sm md:max-w-[250px]">
                       {service.description}
                     </p>
                   </div>
 
-                  {/* 5. Arrow */}
+                  {/* ARROW */}
                   <div className="md:col-span-1 flex justify-end">
                     <div className="w-10 h-10 md:w-14 md:h-14 border border-white/20 rounded-full flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all duration-500">
                       <FiArrowUpRight className="text-lg md:text-2xl" />

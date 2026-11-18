@@ -104,7 +104,7 @@ const Hero = () => {
           <motion.img
             key={currentSlide}
             src={HERO_SLIDES[currentSlide]}
-            alt=""
+            alt="heroimage"
             aria-hidden="true"
             fetchPriority={currentSlide === 0 ? "high" : "auto"}
             initial={{ opacity: 0 }}

@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -229,7 +228,7 @@ const CaseStudies = () => {
           {duplicated.map((item, idx) => (
             <Link
               key={`${item.slug}-${idx}`}
-              href={`/explore/${item.slug}`}
+              href={`/projects/${item.slug}`}
               onMouseEnter={() => (speed.current = 0.1)}
               onMouseLeave={() => (speed.current = 0.6)}
               className="group relative shrink-0 w-[85vw] sm:w-[400px] md:w-[550px] lg:w-[650px] aspect-[16/10] overflow-hidden rounded-[1.25rem] md:rounded-[2rem] border border-white/5 bg-[#121212] block cursor-pointer"
@@ -289,7 +288,7 @@ const CaseStudies = () => {
           Discover local life
         </p>
 
-        <Link href="/explore" className="w-full sm:w-auto">
+        <Link href="/projects" className="w-full sm:w-auto">
           <button className="w-full sm:w-auto group cursor-pointer relative flex items-center justify-center gap-3 bg-primary text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-[10px] md:text-[11px] font-bold uppercase tracking-widest overflow-hidden transition-all duration-300">
             <span className="relative z-10">Explore Gimhae</span>
 

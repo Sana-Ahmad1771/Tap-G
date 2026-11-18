@@ -166,7 +166,7 @@ const Services = () => {
             href="#"
             className="group relative flex items-center gap-3 bg-primary text-white px-8 py-4 md:px-10 md:py-5 rounded-full text-[10px] md:text-[11px] font-bold uppercase tracking-widest overflow-hidden transition-all duration-300"
           >
-            <span className="relative z-10">Explore TAP-G</span>
+            <span className="relative z-10">Explore</span>
 
             <span className="text-lg relative z-10 group-hover:rotate-45 transition-transform duration-500">
               ✦

@@ -68,18 +68,18 @@ const AllProjectsCards = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between border-t border-black/10  gap-6">
           <div className="max-w-full pt-4 md:pt-6">
             <p className="text-[10px] md:text-[11px] mb-6 uppercase tracking-[0.2em] font-bold text-black flex items-center gap-2">
-              <span className="text-sm">✱</span> Selected Works
+              <span className="text-sm">✱</span> Featured Locals
             </p>
             {/* GSAP PARALLAX HEADING */}
 
             <div className="font-monosansnarrow text-[15vw] lg:text-[8.5rem] leading-[0.9] font-black uppercase tracking-wide">
-              <ParallaxSplitText text="Defining" />
-              <ParallaxSplitText text="The Standard." isGrey={true} />
+              <ParallaxSplitText text="Discover" />
+              <ParallaxSplitText text="Local Life." isGrey={true} />
             </div>
           </div>
           <p className="text-[10px] md:text-[12px] uppercase tracking-widest text-primary font-bold max-w-[250px] leading-relaxed border-l border-black/10 pl-6 mb-2">
-            A curated collection of digital experiences built for the{" "}
-            <span className="text-black">next generation</span> of brands.
+            A curated collection of local stores, student favorites, and
+            everyday finds across <span className="text-black">Gimhae.</span>
           </p>
         </div>
       </div>
@@ -121,9 +121,9 @@ const AllProjectsCards = () => {
                         {proj.title}
                       </h2>
                       <p className="text-sm md:text-base text-black/50 max-w-sm leading-relaxed">
-                        Transforming the digital landscape through{" "}
-                        {proj.tags?.[0].toLowerCase()} and strategic art
-                        direction.
+                        Bringing {proj.tags?.[0]?.toLowerCase() || "local"}{" "}
+                        favorites closer to students and everyday life in
+                        Gimhae.
                       </p>
                     </div>
 
@@ -132,7 +132,7 @@ const AllProjectsCards = () => {
                         <FiArrowUpRight className="text-xl transition-transform group-hover:rotate-45" />
                       </div>
                       <span className="text-[10px] font-black uppercase tracking-[0.2em] group-hover:tracking-[0.4em] transition-all duration-500">
-                        View Project
+                        View Details
                       </span>
                     </div>
                   </div>
@@ -178,7 +178,7 @@ const AllProjectsCards = () => {
         <div className="flex flex-col items-center gap-4">
           <div className="w-[1px] h-20 bg-gradient-to-b from-black/20 to-transparent"></div>
           <span className="text-[10px] uppercase tracking-[0.5em] text-black/20">
-            End of Gallery
+            Made for Gimhae
           </span>
         </div>
       </div>

@@ -6,38 +6,38 @@ import Script from "next/script";
 
 /* Projects Page SEO Metadata */
 export const metadata = {
-  title: "Projects | Healthcare IT Services",
+  title: "Explore Gimhae | Local Stores, Food & Campus Life",
 
   description:
-    "Explore Sinnex Tech projects showcasing healthcare technology, custom software development, digital transformation, and innovative IT solutions.",
-
+    "Discover local favorites, food and drinks, campus life, and community experiences around Gimhae with TAP-G. Explore shops and everyday finds for students.",
   keywords: [
-    "Sinnex Tech projects",
-    "healthcare technology projects",
-    "medical software projects",
-    "healthcare IT case studies",
-    "digital healthcare solutions",
-    "custom software development projects",
-    "health tech portfolio",
+    "TAP-G",
+    "explore Gimhae",
+    "Gimhae local stores",
+    "Gimhae restaurants and cafes",
+    "Inje University campus life",
+    "local favorites Gimhae",
+    "Gimhae community experiences",
+    "local discovery",
   ],
 
   alternates: {
-    canonical: "https://sinnextech.com/projects",
+    canonical: "https://tap-g.vercel.app/projects",
   },
 
-  /*  Open Graph */
+  /* Open Graph */
   openGraph: {
-    title: "Projects | Sinnex Tech Healthcare & Digital Solutions",
+    title: "Explore Gimhae | Local Stores, Food & Campus Life | TAP-G",
     description:
-      "View Sinnex Tech’s portfolio of healthcare technology and digital transformation projects delivered for global clients.",
-    url: "https://sinnextech.com/projects",
-    siteName: "Sinnex Tech",
+      "Browse local favorites, food and drinks, campus life, and community experiences across Gimhae with TAP-G.",
+    url: "https://tap-g.vercel.app/projects",
+    siteName: "TAP-G",
     images: [
       {
-        url: "https://sinnextechnew.vercel.app/og/projects.png", // /public/og/projects.png
+        url: "https://tap-g.vercel.app/og/projects.png", // /public/og/projects.png
         width: 1200,
         height: 630,
-        alt: "Sinnex Tech Projects Portfolio",
+        alt: "TAP-G - Explore Gimhae",
       },
     ],
     locale: "en_US",
@@ -47,13 +47,13 @@ export const metadata = {
   /* Twitter Card */
   twitter: {
     card: "summary_large_image",
-    site: "@SinnexTech",
-    title: "Projects | Sinnex Tech Healthcare & Digital Solutions",
+    title: "Explore Gimhae | Local Stores, Food & Campus Life | TAP-G",
     description:
-      "Discover Sinnex Tech’s healthcare and digital technology projects, including custom software and IT solutions.",
-    images: ["https://sinnextechnew.vercel.app/og/projects.png"],
+      "Discover local stores, food, campus life, and community experiences around Gimhae with TAP-G.",
+    images: ["https://tap-g.vercel.app/og/projects.png"],
   },
 };
+
 const breadcrumb = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -62,13 +62,13 @@ const breadcrumb = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://sinnextech.com",
+      item: "https://tap-g.vercel.app",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Projects",
-      item: "https://sinnextech.com/projects",
+      item: "https://tap-g.vercel.app/projects",
     },
   ],
 };
@@ -78,30 +78,27 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://sinnextech.com/#organization",
-      name: "Sinnex Tech",
-      url: "https://sinnextech.com",
-      logo: "https://sinnextech.com/logo.png",
-      sameAs: [
-        "https://www.linkedin.com/company/sinnextech",
-        "https://twitter.com/SinnexTech",
-      ],
+      "@id": "https://tap-g.vercel.app/#organization",
+      name: "TAP-G",
+      url: "https://tap-g.vercel.app",
+      logo: "https://tap-g.vercel.app/images/Tap-icon.svg",
     },
     {
       "@type": "WebSite",
-      "@id": "https://sinnextech.com/#website",
-      url: "https://sinnextech.com",
-      name: "Sinnex Tech",
-      publisher: { "@id": "https://sinnextech.com/#organization" },
+      "@id": "https://tap-g.vercel.app/#website",
+      url: "https://tap-g.vercel.app",
+      name: "TAP-G",
+      publisher: { "@id": "https://tap-g.vercel.app/#organization" },
+      inLanguage: "en",
     },
     {
       "@type": "CollectionPage",
-      "@id": "https://sinnextech.com/projects/#projects",
-      name: "Projects",
+      "@id": "https://tap-g.vercel.app/projects/#projects",
+      name: "Explore Gimhae",
       description:
-        "A portfolio of Sinnex Tech projects showcasing healthcare technology, custom software, digital transformation, and innovative IT solutions.",
-      url: "https://sinnextech.com/projects",
-      mainEntityOfPage: { "@id": "https://sinnextech.com/#website" },
+        "A curated collection of local favorites, food and drinks, campus life, and community experiences around Gimhae.",
+      url: "https://tap-g.vercel.app/projects",
+      mainEntityOfPage: { "@id": "https://tap-g.vercel.app/#website" },
     },
   ],
 };

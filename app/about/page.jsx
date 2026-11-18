@@ -5,40 +5,40 @@ import StorySection from "../components/pages/about/StorySection";
 import Timeline from "../components/pages/about/TimeLine";
 import Script from "next/script";
 
-/*About Page SEO Metadata*/
+/* About Page SEO Metadata */
 export const metadata = {
-  title: "About | Healthcare IT Services",
+  title: "About TAP-G | Connecting Local Life in Gimhae",
 
-  description:
-    "Learn about Sinnex Tech — a healthcare technology company focused on innovation, digital transformation, and reliable IT solutions for the healthcare industry.",
-
-  keywords: [
-    "About Sinnex Tech",
-    "healthcare technology company",
-    "health tech innovation",
-    "healthcare IT experts",
-    "medical software company",
-    "digital healthcare solutions",
-    "healthcare technology services",
+ description:
+  "Learn about TAP-G, a local platform connecting Gimhae's stores, university students, and everyday needs. Discover make local life easier.",
+   keywords: [
+    "About TAP-G",
+    "TAP-G Gimhae",
+    "local platform Gimhae",
+    "Inje University students",
+    "Gimhae local businesses",
+    "Gimhae community",
+    "local discovery",
+    "campus delivery",
   ],
 
   alternates: {
-    canonical: "https://sinnextech.com/about",
+    canonical: "https://tap-g.vercel.app/about",
   },
 
   /* Open Graph */
   openGraph: {
-    title: "About | Sinnex Tech",
+    title: "About TAP-G | Connecting Local Life in Gimhae",
     description:
-      "Discover Sinnex Tech’s mission, vision, and journey in delivering innovative healthcare technology and digital solutions.",
-    url: "https://sinnextech.com/about",
-    siteName: "Sinnex Tech",
+      "Discover the story behind TAP-G and how we connect local stores, students, and everyday life across Gimhae.",
+    url: "https://tap-g.vercel.app/about",
+    siteName: "TAP-G",
     images: [
       {
-        url: "https://sinnextechnew.vercel.app/og/about.png", // place in /public/og/about.png
+        url: "https://tap-g.vercel.app/og/about.png", // place in /public/og/about.png
         width: 1200,
         height: 630,
-        alt: "About Sinnex Tech",
+        alt: "About TAP-G - Connecting Local Life in Gimhae",
       },
     ],
     locale: "en_US",
@@ -48,11 +48,10 @@ export const metadata = {
   /* Twitter Card */
   twitter: {
     card: "summary_large_image",
-    site: "@SinnexTech",
-    title: "About | Sinnex Tech",
+    title: "About TAP-G | Connecting Local Life in Gimhae",
     description:
-      "Explore Sinnex Tech’s journey, values, and expertise in healthcare technology and digital solutions.",
-    images: ["https://sinnextechnew.vercel.app/og/about.png"],
+      "Learn how TAP-G connects local stores, university students, and everyday life across Gimhae.",
+    images: ["https://tap-g.vercel.app/og/about.png"],
   },
 };
 
@@ -64,13 +63,13 @@ const breadcrumb = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://sinnextech.com",
+      item: "https://tap-g.vercel.app",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "About",
-      item: "https://sinnextech.com/about",
+      item: "https://tap-g.vercel.app/about",
     },
   ],
 };
@@ -80,40 +79,36 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://sinnextech.com/#organization",
-      name: "Sinnex Tech",
-      url: "https://sinnextech.com",
-      logo: "https://sinnextech.com/logo.png",
-      sameAs: [
-        "https://www.linkedin.com/company/sinnextech",
-        "https://twitter.com/SinnexTech",
-      ],
+      "@id": "https://tap-g.vercel.app/#organization",
+      name: "TAP-G",
+      url: "https://tap-g.vercel.app",
+      logo: "https://tap-g.vercel.app/images/Tap-icon.svg",
     },
     {
       "@type": "WebSite",
-      "@id": "https://sinnextech.com/#website",
-      url: "https://sinnextech.com",
-      name: "Sinnex Tech",
-      publisher: { "@id": "https://sinnextech.com/#organization" },
+      "@id": "https://tap-g.vercel.app/#website",
+      url: "https://tap-g.vercel.app",
+      name: "TAP-G",
+      publisher: { "@id": "https://tap-g.vercel.app/#organization" },
+      inLanguage: "en",
     },
-    // Optional FAQ section if you have Q&A on the page
     {
       "@type": "FAQPage",
       mainEntity: [
         {
           "@type": "Question",
-          name: "What does Sinnex Tech do?",
+          name: "What is TAP-G?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Sinnex Tech is a healthcare technology company offering innovative IT solutions, custom software, and digital services for healthcare organizations.",
+            text: "TAP-G is a local platform concept designed to connect Gimhae's neighborhood businesses, university students, and everyday needs in one place.",
           },
         },
         {
           "@type": "Question",
-          name: "Where is Sinnex Tech located?",
+          name: "Where is TAP-G based?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Sinnex Tech serves clients worldwide, focusing on healthcare organizations.",
+            text: "TAP-G is made for Gimhae, South Korea, with a focus on students and residents living and studying around Inje University.",
           },
         },
       ],

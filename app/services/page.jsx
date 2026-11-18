@@ -4,39 +4,40 @@ import ServicesHero from "../components/pages/services/ServicesHero";
 import CTA from "../components/pages/home/CTA.jsx";
 import Script from "next/script";
 
+/* Services Page SEO Metadata */
 export const metadata = {
-  title: "Services | Healthcare IT Services",
+  title: "Services | Local Delivery & Discovery in Gimhae",
 
   description:
-    "Sinnex Tech provides healthcare IT services including custom software development, digital transformation, system integration, and secure healthcare solutions.",
+    "Explore TAP-G services: food delivery, groceries, campus delivery, and local discovery for students and residents around Gimhae.",
 
   keywords: [
-    "Sinnex Tech services",
-    "healthcare IT services",
-    "medical software development",
-    "digital healthcare solutions",
-    "healthcare web development",
-    "custom healthcare software",
-    "health tech consulting",
+    "TAP-G services",
+    "Gimhae food delivery",
+    "Gimhae grocery delivery",
+    "campus delivery Inje University",
+    "local discovery Gimhae",
+    "express delivery Gimhae",
+    "Gimhae community",
   ],
 
   alternates: {
-    canonical: "https://sinnextech.com/services",
+    canonical: "https://tap-g.vercel.app/services",
   },
 
   /* Open Graph */
   openGraph: {
-    title: "Healthcare IT Services | Sinnex Tech",
+    title: "Services | Local Delivery & Discovery in Gimhae | TAP-G",
     description:
-      "Discover Sinnex Tech’s healthcare IT services designed to modernize healthcare operations and improve patient outcomes.",
-    url: "https://sinnextech.com/services",
-    siteName: "Sinnex Tech",
+      "Food delivery, groceries, campus delivery, and local discovery made for everyday life in Gimhae.",
+    url: "https://tap-g.vercel.app/services",
+    siteName: "TAP-G",
     images: [
       {
-        url: "https://sinnextechnew.vercel.app/og/services.png", // /public/og/services.png
+        url: "https://tap-g.vercel.app/og/services.png", // /public/og/services.png
         width: 1200,
         height: 630,
-        alt: "Sinnex Tech Healthcare IT Services",
+        alt: "TAP-G Services - Local Delivery & Discovery in Gimhae",
       },
     ],
     locale: "en_US",
@@ -46,13 +47,13 @@ export const metadata = {
   /* Twitter Card */
   twitter: {
     card: "summary_large_image",
-    site: "@SinnexTech",
-    title: "Healthcare IT Services | Sinnex Tech",
+    title: "Services | Local Delivery & Discovery in Gimhae | TAP-G",
     description:
-      "Explore healthcare IT services, medical software solutions, and digital healthcare innovation by Sinnex Tech.",
-    images: ["https://sinnextechnew.vercel.app/og/services.png"],
+      "Food delivery, groceries, campus delivery, and local discovery for students and residents in Gimhae.",
+    images: ["https://tap-g.vercel.app/og/services.png"],
   },
 };
+
 const breadcrumb = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -61,13 +62,13 @@ const breadcrumb = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://sinnextech.com",
+      item: "https://tap-g.vercel.app",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Services",
-      item: "https://sinnextech.com/services",
+      item: "https://tap-g.vercel.app/services",
     },
   ],
 };
@@ -77,33 +78,34 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://sinnextech.com/#organization",
-      name: "Sinnex Tech",
-      url: "https://sinnextech.com",
-      logo: "https://sinnextech.com/logo.png",
-      sameAs: [
-        "https://www.linkedin.com/company/sinnextech",
-        "https://twitter.com/SinnexTech",
-      ],
+      "@id": "https://tap-g.vercel.app/#organization",
+      name: "TAP-G",
+      url: "https://tap-g.vercel.app",
+      logo: "https://tap-g.vercel.app/images/Tap-icon.svg",
     },
     {
       "@type": "WebSite",
-      "@id": "https://sinnextech.com/#website",
-      url: "https://sinnextech.com",
-      name: "Sinnex Tech",
-      publisher: { "@id": "https://sinnextech.com/#organization" },
+      "@id": "https://tap-g.vercel.app/#website",
+      url: "https://tap-g.vercel.app",
+      name: "TAP-G",
+      publisher: { "@id": "https://tap-g.vercel.app/#organization" },
+      inLanguage: "en",
     },
     {
       "@type": "Service",
-      name: "Healthcare IT Services",
-      provider: { "@id": "https://sinnextech.com/#organization" },
+      name: "TAP-G Local Delivery & Discovery",
+      provider: { "@id": "https://tap-g.vercel.app/#organization" },
       description:
-        "Sinnex Tech provides healthcare IT services including custom software development, digital transformation, system integration, and secure healthcare solutions.",
-      serviceType: "Healthcare IT Solutions",
-      areaServed: "Worldwide",
+        "Food delivery, groceries and essentials, campus delivery, and local discovery for students and residents around Gimhae.",
+      serviceType: "Local delivery and discovery",
+      areaServed: {
+        "@type": "City",
+        name: "Gimhae",
+        containedInPlace: { "@type": "Country", name: "South Korea" },
+      },
       audience: {
         "@type": "Audience",
-        audienceType: "Healthcare organizations and providers",
+        audienceType: "University students and local residents",
       },
     },
   ],

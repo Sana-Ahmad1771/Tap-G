@@ -1,4 +1,3 @@
-
 import Script from "next/script";
 import ClientScroll from "./components/pages/home/ClientScroll.jsx";
 import HeroLayout from "./components/pages/home/HeroLayout.jsx";
@@ -15,8 +14,7 @@ export const metadata = {
   title: "TAP-G | Connecting Local Life in Gimhae",
 
   description:
-    "TAP-G connects Gimhae's local stores, university students, and everyday needs through one convenient local platform. Discover local food, groceries, neighborhood businesses, and more.",
-
+    "TAP-G connects Gimhae's local stores, university students, and everyday needs in one local platform. Discover food, groceries, and neighborhood businesses.",
   keywords: [
     "TAP-G",
     "Gimhae",

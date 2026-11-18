@@ -161,9 +161,9 @@ const FAQSection = () => {
               }}
             >
               <img
-                src="/images/faq6.avif"
+                src="/images/faq.png"
                 alt="Discovering local life with TAP-G in Gimhae"
-                className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110"
+                className="w-full h-full object-fill transition-transform duration-[1.5s] group-hover:scale-110"
               />
 
               <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />

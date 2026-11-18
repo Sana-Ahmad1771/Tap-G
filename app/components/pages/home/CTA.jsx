@@ -210,7 +210,7 @@ export default function CTA() {
           href="/contact"
           className="group relative cursor-pointer inline-flex items-center gap-4 bg-primary text-white px-8 py-4 md:px-12 md:py-6 rounded-full text-[10px] md:text-[11px] font-bold uppercase tracking-widest overflow-hidden transition-transform active:scale-95"
         >
-          <span className="relative z-10">Connect With TAP-G</span>
+          <span className="relative z-10">Get Started</span>
 
           <span className="relative z-10 transition-transform duration-500 group-hover:rotate-45 text-lg">
             ✦
@@ -220,7 +220,7 @@ export default function CTA() {
         </Link>
 
         <p className="text-white/30 pt-6 text-[8px] md:text-[10px] uppercase tracking-[0.3em] font-medium">
-          TAP-G — Made for Gimhae
+          Tap-G
         </p>
       </div>
 

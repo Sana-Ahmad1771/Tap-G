@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef, Suspense } from "react";
@@ -193,21 +192,21 @@ function ProjectPageContent() {
   }, [project]);
 
   // ==========================================
-  // PROJECT NOT FOUND
+  // PAGE NOT FOUND
   // ==========================================
 
   if (!project) {
     return (
       <main className="min-h-screen bg-[#F2F2F2] flex flex-col items-center justify-center gap-6">
         <h1 className="text-4xl font-black uppercase">
-          Project Not Found
+          Page Not Found
         </h1>
 
         <Link
           href="/projects"
           className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest"
         >
-          Back to Projects
+          Back to Explore
           <FiArrowRight />
         </Link>
       </main>
@@ -254,7 +253,7 @@ function ProjectPageContent() {
               <div className="h-[1px] w-full bg-white/10 mb-8" />
 
               <p className="text-xl md:text-2xl font-medium leading-relaxed max-w-md italic text-gray-400">
-                "{project.description}"
+                &quot;{project.description}&quot;
               </p>
 
             </div>
@@ -287,11 +286,11 @@ function ProjectPageContent() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 -mt-20 md:-mt-36 lg:-mt-42 relative z-20">
 
             {[
-              { label: "Service", val: project.service },
-              { label: "Industry", val: project.industry },
+              { label: "Category", val: project.service },
+              { label: "Area", val: project.industry },
               { label: "Year", val: project.year },
               {
-                label: "View Link",
+                label: "Explore",
                 val: project.title,
                 isLink: true,
               },
@@ -331,7 +330,7 @@ function ProjectPageContent() {
 
           </div>
 
-          {/* PROJECT PURPOSE */}
+          {/* WHY IT MATTERS */}
 
           <div className="mt-16 md:mt-32 grid grid-cols-1 lg:grid-cols-10 gap-10 lg:gap-16 items-start">
 
@@ -341,11 +340,11 @@ function ProjectPageContent() {
 
                 <ParallaxSplitText
                   className="text-black"
-                  text="Project"
+                  text="Why It"
                 />
 
                 <ParallaxSplitText
-                  text=" Purpose"
+                  text=" Matters"
                   isGrey={true}
                 />
 
@@ -359,11 +358,7 @@ function ProjectPageContent() {
 
                 <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
 
-                  {[
-                    "Strategic Planning",
-                    "Technical Execution",
-                    "Visual Identity",
-                  ].map((item, idx) => (
+                  {project.highlights?.map((item, idx) => (
                     <li
                       key={idx}
                       className="flex items-center gap-4 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-black/40"
@@ -380,14 +375,14 @@ function ProjectPageContent() {
 
             <div className="lg:col-span-5 flex flex-col gap-6 md:gap-12">
 
-              {[0, 0, 0].map((_, idx) => (
+              {[0, 1, 2].map((idx) => (
                 <div
                   key={idx}
                   ref={(el) => (galleryRefs.current[idx] = el)}
                   className="aspect-[16/10] relative rounded-2xl md:rounded-[2.5rem] overflow-hidden shadow-xl ring-1 ring-black/5"
                 >
                   <Image
-                    src={project.gallery[0]}
+                    src={project.gallery[idx] || project.gallery[0]}
                     alt={`Gallery ${idx + 1}`}
                     width={600}
                     height={600}
@@ -403,28 +398,23 @@ function ProjectPageContent() {
             </div>
           </div>
 
-          {/* ACHIEVED GOALS */}
+          {/* WHAT YOU GET */}
 
           <div className="mt-20 md:mt-32 pt-12 md:pt-16 border-t border-gray-300">
 
             <h2 className="font-monosansnarrow text-[15vw] lg:text-[8.5rem] leading-[0.9] font-black uppercase tracking-wide">
-              Achieved <span className="opacity-50">Goals</span>
+              What You <span className="opacity-50">Get</span>
             </h2>
 
             <div className="space-y-10">
 
               <p className="text-gray-500 text-sm md:text-base leading-relaxed">
-                Curabitur a felis neque. Sed ornare eu elit vitae lobortis.
-                Donec vulputate hendrerit sodales.
+                {project.goalsText}
               </p>
 
               <div className="space-y-4">
 
-                {[
-                  "Conversion uplift",
-                  "Brand recognition",
-                  "System scalability",
-                ].map((goal, i) => (
+                {project.goals?.map((goal, i) => (
                   <div
                     key={i}
                     className="flex gap-4 items-center border-b border-gray-200 pb-3"
@@ -443,7 +433,7 @@ function ProjectPageContent() {
             </div>
           </div>
 
-          {/* TESTIMONIAL BLOCK */}
+          {/* TAP-G NOTE BLOCK */}
 
           <div className="mt-20 md:mt-32 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
 
@@ -455,7 +445,7 @@ function ProjectPageContent() {
 
                   <Image
                     src={project.customerimage}
-                    alt="Client"
+                    alt={project.customer}
                     width={600}
                     height={600}
                     className="object-cover w-full h-full"
@@ -472,7 +462,7 @@ function ProjectPageContent() {
               <div className="pt-8 md:pt-10 border-t border-black/5">
 
                 <p className="text-xl md:text-3xl font-medium tracking-tight leading-tight italic text-black/80">
-                  "{project.customerreview}"
+                  &quot;{project.customerreview}&quot;
                 </p>
 
               </div>
@@ -481,7 +471,7 @@ function ProjectPageContent() {
             <div className="relative rounded-3xl md:rounded-[2.5rem] overflow-hidden min-h-75 md:min-h-[500px] shadow-2xl group">
 
               <Image
-                src={project.gallery[0] || project.img}
+                src={project.gallery[1] || project.gallery[0] || project.img}
                 alt="Feature Detail"
                 width={500}
                 height={500}
@@ -491,7 +481,7 @@ function ProjectPageContent() {
             </div>
           </div>
 
-          {/* OTHER PROJECTS */}
+          {/* MORE TO EXPLORE */}
 
           <div className="mt-20 md:mt-32 pt-16 md:pt-24 border-t border-black/10">
 
@@ -501,11 +491,11 @@ function ProjectPageContent() {
 
                 <ParallaxSplitText
                   className="text-black"
-                  text="Other"
+                  text="More To"
                 />
 
                 <ParallaxSplitText
-                  text=" Projects"
+                  text=" Explore"
                   isGrey={true}
                 />
 
@@ -515,7 +505,7 @@ function ProjectPageContent() {
                 href="/projects"
                 className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] flex items-center gap-2 group"
               >
-                View All Works
+                Explore All
 
                 <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -549,7 +539,7 @@ function ProjectPageContent() {
                     </h3>
 
                     <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-gray-400">
-                      Explore Case ↗
+                      Discover ↗
                     </span>
 
                   </div>
@@ -579,7 +569,7 @@ export default function ProjectPage() {
       fallback={
         <main className="min-h-screen bg-[#F2F2F2] flex items-center justify-center">
           <p className="text-sm font-bold uppercase tracking-widest">
-            Loading Project...
+            Loading...
           </p>
         </main>
       }

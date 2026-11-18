@@ -5,38 +5,38 @@ import Script from "next/script";
 
 /* Contact Page SEO Metadata */
 export const metadata = {
-  title: "Contact | Healthcare IT Services",
+  title: "Contact TAP-G | Connect With Us in Gimhae",
 
   description:
-    "Get in touch with Sinnex Tech for healthcare technology solutions, digital transformation, and custom IT services. We’re here to help your business grow.",
+    "Get in touch with TAP-G for partnerships, local business opportunities, and student communities in Gimhae. Let's make local life more connected.",
 
   keywords: [
-    "Contact Sinnex Tech",
-    "healthcare technology contact",
-    "healthcare IT consultation",
-    "health tech company contact",
-    "medical software services contact",
-    "digital healthcare solutions",
-    "Sinnex Tech support",
+    "Contact TAP-G",
+    "TAP-G Gimhae",
+    "Gimhae local business partnership",
+    "Inje University student community",
+    "local platform Gimhae",
+    "Gimhae community",
+    "TAP-G KakaoTalk",
   ],
 
   alternates: {
-    canonical: "https://sinnextech.com/contact",
+    canonical: "https://tap-g.vercel.app/contact",
   },
 
   /* Open Graph */
   openGraph: {
-    title: "Contact | Sinnex Tech",
+    title: "Contact TAP-G | Connect With Us in Gimhae",
     description:
-      "Reach out to Sinnex Tech to discuss healthcare technology, digital solutions, and innovative IT services tailored to your needs.",
-    url: "https://sinnextech.com/contact",
-    siteName: "Sinnex Tech",
+      "Reach out to TAP-G to discuss partnerships, local businesses, and student communities across Gimhae.",
+    url: "https://tap-g.vercel.app/contact",
+    siteName: "TAP-G",
     images: [
       {
-        url: "https://sinnextechnew.vercel.app/og/contact.png", // ✅ correct path (no /public in URL)
+        url: "https://tap-g.vercel.app/og/contact.png", // /public/og/contact.png
         width: 1200,
         height: 630,
-        alt: "Contact Sinnex Tech",
+        alt: "Contact TAP-G - Connecting Local Life in Gimhae",
       },
     ],
     locale: "en_US",
@@ -46,11 +46,10 @@ export const metadata = {
   /* Twitter Card */
   twitter: {
     card: "summary_large_image",
-    site: "@SinnexTech",
-    title: "Contact | Sinnex Tech",
+    title: "Contact TAP-G | Connect With Us in Gimhae",
     description:
-      "Contact Sinnex Tech for innovative healthcare technology, digital transformation, and IT solutions.",
-    images: ["https://sinnextechnew.vercel.app/og/contact.png"],
+      "Contact TAP-G for partnerships, local businesses, and student communities in Gimhae.",
+    images: ["https://tap-g.vercel.app/og/contact.png"],
   },
 };
 
@@ -62,13 +61,13 @@ const breadcrumb = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://sinnextech.com",
+      item: "https://tap-g.vercel.app",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Contact",
-      item: "https://sinnextech.com/contact",
+      item: "https://tap-g.vercel.app/contact",
     },
   ],
 };
@@ -78,31 +77,25 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://sinnextech.com/#organization",
-      name: "Sinnex Tech",
-      url: "https://sinnextech.com",
-      logo: "https://sinnextech.com/logo.png",
-      sameAs: [
-        "https://www.linkedin.com/company/sinnextech",
-        "https://twitter.com/SinnexTech",
-      ],
-      contactPoint: [
-        {
-          "@type": "ContactPoint",
-          telephone: "+1-234-567-890",
-          contactType: "customer support",
-          email: "info@sinnextech.com",
-          areaServed: "Worldwide",
-          availableLanguage: ["English"],
-        },
-      ],
+      "@id": "https://tap-g.vercel.app/#organization",
+      name: "TAP-G",
+      url: "https://tap-g.vercel.app",
+      logo: "https://tap-g.vercel.app/images/Tap-icon.svg",
     },
     {
       "@type": "WebSite",
-      "@id": "https://sinnextech.com/#website",
-      url: "https://sinnextech.com",
-      name: "Sinnex Tech",
-      publisher: { "@id": "https://sinnextech.com/#organization" },
+      "@id": "https://tap-g.vercel.app/#website",
+      url: "https://tap-g.vercel.app",
+      name: "TAP-G",
+      publisher: { "@id": "https://tap-g.vercel.app/#organization" },
+      inLanguage: "en",
+    },
+    {
+      "@type": "ContactPage",
+      "@id": "https://tap-g.vercel.app/contact/#contactpage",
+      name: "Contact TAP-G",
+      url: "https://tap-g.vercel.app/contact",
+      isPartOf: { "@id": "https://tap-g.vercel.app/#website" },
     },
   ],
 };

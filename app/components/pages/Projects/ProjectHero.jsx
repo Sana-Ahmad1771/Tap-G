@@ -35,7 +35,7 @@ const ProjectHero = () => {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="text-[14vw] md:text-[10vw] lg:text-[8vw] leading-[0.85] font-black uppercase tracking-tighter"
           >
-            <span className="block text-white">Creative</span>
+            <span className="block text-white">Local</span>
             <span className="block text-white opacity-40">Showcase</span>
           </motion.h1>
 
@@ -50,7 +50,7 @@ const ProjectHero = () => {
               href="/contact"
               className="group relative w-full sm:w-auto flex items-center justify-center sm:justify-start gap-3 bg-primary text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-[10px] md:text-[11px] font-bold uppercase tracking-widest overflow-hidden transition-all duration-300"
             >
-              <span className="relative z-10"> Get in Touch</span>
+              <span className="relative z-10">Get in Touch</span>
               <span className="text-lg relative z-10 group-hover:rotate-45 transition-transform duration-500">
                 ✦
               </span>
