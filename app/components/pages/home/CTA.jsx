@@ -13,15 +13,15 @@ export default function CTA() {
 
   // Each grid box has its own image
   const gridMedia = [
-    { src: "/images/case1.png", alt: "Food delivery" },
-    { src: "/images/case1.png", alt: "Groceries and essentials" },
-    { src: "/images/case1.png", alt: "Drinks and beverages" },
-    { src: "/images/case1.png", alt: "Everyday essentials" },
+    { src: "/images/service1.jfif", alt: "Food delivery" },
+    { src: "/images/service2.jfif", alt: "Groceries and essentials" },
+    { src: "/images/service3.jfif", alt: "Drinks and beverages" },
+    { src: "/images/tap-hero.png", alt: "Everyday essentials" },
     { src: "/images/case1.png", alt: "TAP-G local delivery" },
-    { src: "/images/case1.png", alt: "Shopping and groceries" },
-    { src: "/images/case1.png", alt: "Fresh fruits and vegetables" },
-    { src: "/images/case1.png", alt: "Local delivery rider" },
-    { src: "/images/case1.png", alt: "Express delivery" },
+    { src: "/images/tap-hero2.png", alt: "Shopping and groceries" },
+    { src: "/images/service4.jfif", alt: "Fresh fruits and vegetables" },
+    { src: "/images/tap-hero3.png", alt: "Local delivery rider" },
+    { src: "/images/service5.jfif", alt: "Express delivery" },
   ];
 
   useEffect(() => {
@@ -197,7 +197,6 @@ export default function CTA() {
         </p>
 
         <h2 className="flex flex-col items-center text-[10vw] sm:text-[11vw] md:text-[11vw] xl:text-[8.5rem] leading-[0.9] font-black uppercase text-white tracking-tighter mb-5 md:mb-12 whitespace-nowrap">
-          
           <span>Let&apos;s bring</span>
           <span
             className="text-transparent"

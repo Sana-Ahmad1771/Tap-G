@@ -45,7 +45,7 @@ const ContactHero = () => {
 
     if (!validate()) return;
 
-    console.log("Form Submitted:", formData);
+    console.log("TAP-G Contact Form:", formData);
 
     // Optional: reset form
     setFormData({ name: "", email: "", message: "" });
@@ -74,7 +74,7 @@ const ContactHero = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-[10px] uppercase tracking-[0.5em] font-bold mb-8 flex gap-2"
             >
-              <span>✱</span> Contact Us
+              <span>✱</span> Let&apos;s Connect
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, x: -30 }}
@@ -82,8 +82,8 @@ const ContactHero = () => {
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="font-monosansnarrow text-[12vw] md:text-[8.5rem] leading-[0.9] md:leading-[0.85] font-black uppercase tracking-wide"
             >
-              <span className="block">Start</span>
-              <span className="opacity-40 block">Project.</span>
+              <span className="block">Let&apos;s</span>
+              <span className="opacity-40 block">Connect.</span>
             </motion.h1>
           </div>
           <motion.div
@@ -93,8 +93,9 @@ const ContactHero = () => {
             className="w-full lg:col-span-4 border-l border-white/10 pl-6"
           >
             <p className="text-[10px] md:text-xs text-white/40 uppercase tracking-widest leading-relaxed max-w-xs">
-              Directing digital evolution through{" "}
-              <span className="text-white">strategic</span> design.
+              Bringing people, local businesses, and everyday experiences
+              together across{" "}
+              <span className="text-white">Gimhae, South Korea.</span>
             </p>
           </motion.div>
         </div>
@@ -106,41 +107,39 @@ const ContactHero = () => {
             <div className="space-y-6">
               <div className=" border-b border-white/5 pb-6">
                 <h2 className="text-[9px] uppercase tracking-[0.3em] text-white/40 mb-3">
-                  Email
+                  Let&apos;s Collaborate
                 </h2>
-                <a
-                  href="mailto:hello@sinnextech.com"
-                  className="group text-xl md:text-3xl font-monosansnarrow uppercase font-bold flex items-center justify-between hover:text-primary transition-colors"
-                >
-                  hello@SinnexTech.com
-                  <FiArrowUpRight className="group-hover:rotate-45 transition-transform duration-300" />
-                </a>
+                <p className="group text-xl md:text-3xl font-monosansnarrow uppercase font-bold flex items-center justify-between">
+                  Have Something in Mind?
+                  <FiArrowUpRight className="text-white/30" />
+                </p>
+                <p className="text-xs text-white/35 mt-3 max-w-sm leading-relaxed">
+                  Partnerships, local businesses, student communities, and new
+                  opportunities.
+                </p>
               </div>
 
               <div className="group border-b border-white/5 pb-6">
                 <h2 className="text-[9px] uppercase tracking-[0.3em] text-white/40 mb-3">
-                  Software House
+                  Our Community
                 </h2>
                 <p className="text-xl md:text-3xl font-monosansnarrow uppercase font-bold leading-tight">
-                  No. 347 Office, M.Dubia Tower,
+                  Gimhae,
                   <br />
-                  Khanna Pul, Islamabad, Pakistan
+                  South Korea
+                </p>
+                <p className="text-xs text-white/35 mt-3">
+                  Connecting local life, one experience at a time.
                 </p>
               </div>
             </div>
 
             <div className="flex flex-wrap gap-8 text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">
               <a href="#" className="hover:text-white transition-colors">
+                KakaoTalk
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
                 Instagram
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                LinkedIn
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                Behance
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                Facebook
               </a>
             </div>
           </div>
@@ -187,7 +186,7 @@ const ContactHero = () => {
                   <textarea
                     name="message"
                     rows="3"
-                    placeholder="MESSAGE"
+                    placeholder="TELL US WHAT'S ON YOUR MIND..."
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full bg-transparent border-b border-white/10 py-3 focus:outline-none focus:border-primary transition-colors text-xs uppercase tracking-widest resize-none"
@@ -203,7 +202,7 @@ const ContactHero = () => {
                   type="submit"
                   className="group cursor-pointer relative w-full flex items-center justify-center gap-3 bg-white text-black px-8 py-5 rounded-full text-[10px] font-black uppercase tracking-widest overflow-hidden transition-all duration-500"
                 >
-                  <span className="relative z-10">Send Message</span>
+                  <span className="relative z-10">Send Your Message</span>
                   <FiArrowUpRight className="relative z-10 text-lg group-hover:rotate-45 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                 </button>
@@ -217,12 +216,14 @@ const ContactHero = () => {
       <section className="relative z-10 w-full h-[50vh] md:h-[70vh] max-w-[1500px] mx-auto pt-10 md:pt-20">
         <div className="w-full h-full rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-white/10 grayscale invert contrast-[1.2] opacity-60 hover:opacity-100 transition-opacity duration-700">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46292.54791963975!2d73.04884158450868!3d33.57170264387163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfeb4062e2adc1%3A0x96151197c48f4f32!2sSafeCare%20Training%20%26%20Services!5e0!3m2!1sen!2s!4v1767612425026!5m2!1sen!2s"
+            src="https://www.google.com/maps?q=Gimhae%2C+South+Korea&output=embed"
             width="100%"
             height="100%"
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="TAP-G - Gimhae South Korea Map"
           ></iframe>
         </div>
       </section>

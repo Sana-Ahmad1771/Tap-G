@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { IoLogoInstagram } from "react-icons/io";
-import { RiLinkedinFill, RiFacebookFill } from "react-icons/ri";
+import { RiLinkedinFill, RiFacebookFill, RiKakaoTalkFill } from "react-icons/ri";
 import { FiArrowUp } from "react-icons/fi";
 import Link from "next/link";
 
@@ -27,8 +27,9 @@ const Footer = () => {
 
   const socialLinks = [
     { id: "ig", icon: <IoLogoInstagram size={20} />, url: "#" },
-    { id: "li", icon: <RiLinkedinFill size={20} />, url: "#" },
     { id: "fb", icon: <RiFacebookFill size={20} />, url: "#" },
+    { id: "li", icon: <RiLinkedinFill size={20} />, url: "#" },
+    { id: "kakao", icon: <RiKakaoTalkFill size={20} />, url: "#" },
   ];
 
   const footerLinks = [
@@ -81,6 +82,8 @@ const Footer = () => {
                     <motion.a
                       key={social.id}
                       href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       initial="initial"
                       whileHover="hover"
                       className="relative w-10 h-10 overflow-hidden bg-black rounded-full flex items-center justify-center group"

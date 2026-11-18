@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoLogoInstagram } from "react-icons/io";
-import { RiLinkedinFill } from "react-icons/ri";
+import { RiLinkedinFill, RiKakaoTalkFill } from "react-icons/ri";
 
 const DISABLE_MOTION = true;
 
@@ -13,8 +13,8 @@ const MotionAP = DISABLE_MOTION
 
 const TRAIL_IMAGES = [
   "/images/tapscroll1.png",
-  "/images/tapscroll1.png",
-  "/images/tapscroll1.png",
+  "/images/tapscroll2.png",
+  "/images/tapscroll3.png",
 ];
 
 // Hero background slideshow images
@@ -22,6 +22,12 @@ const HERO_SLIDES = [
   "/images/tap-hero1.png",
   "/images/tap-hero2.png",
   "/images/tap-hero3.png",
+];
+
+const SOCIAL_LINKS = [
+  { id: "ig", icon: <IoLogoInstagram size={22} />, url: "#" },
+  { id: "li", icon: <RiLinkedinFill size={22} />, url: "#" },
+  { id: "kakao", icon: <RiKakaoTalkFill size={22} />, url: "#" },
 ];
 
 const Hero = () => {
@@ -174,21 +180,13 @@ const Hero = () => {
         {/* 5. BOTTOM STATUS BAR */}
         <div className="absolute bottom-0 left-0 w-full z-30 px-6 py-8 flex justify-between items-end text-gray-300 text-[10px] md:text-xs font-bold tracking-widest uppercase">
           <div className="flex items-center gap-4">
-            {[
-              {
-                id: "ig",
-                icon: <IoLogoInstagram size={22} />,
-                url: "#",
-              },
-              {
-                id: "li",
-                icon: <RiLinkedinFill size={22} />,
-                url: "#",
-              },
-            ].map((social) => (
+            {SOCIAL_LINKS.map((social) => (
               <motion.a
                 key={social.id}
                 href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.id}
                 initial="initial"
                 whileHover="hover"
                 className="relative w-12 h-12 overflow-hidden border border-white/10 bg-white/5 rounded-full flex items-center justify-center transition-colors hover:bg-white/20"
@@ -217,8 +215,6 @@ const Hero = () => {
           <div className="hidden md:block tracking-[0.5em]">
             MADE FOR GIMHAE
           </div>
-
-          {/* <div className="w-12 h-12" /> */}
         </div>
       </div>
     </section>

@@ -52,7 +52,12 @@ const Header = ({ variant = "dark" }) => {
 
     // If there's no exact match (e.g. /projects/[slug]) hide the pill so it doesn't linger
     if (!activeLink && pill) {
-      gsap.to(pill, { autoAlpha: 0, width: 0, duration: 0.25, overwrite: true });
+      gsap.to(pill, {
+        autoAlpha: 0,
+        width: 0,
+        duration: 0.25,
+        overwrite: true,
+      });
       return;
     }
 
@@ -78,10 +83,10 @@ const Header = ({ variant = "dark" }) => {
         gsap.to(pill, {
           x: offsetLeft,
           width: offsetWidth,
-          height: offsetHeight, // Matches height immediately
-          top: offsetTop, // Matches top immediately
+          height: offsetHeight,
+          top: offsetTop,
           duration: 0.6,
-          ease: "expo.out", // High quality, smooth professional ease
+          ease: "expo.out",
           overwrite: true,
         });
       }
@@ -165,8 +170,8 @@ const Header = ({ variant = "dark" }) => {
                           ? "text-white"
                           : "text-black"
                         : isLightMode
-                        ? "text-black/60 hover:text-black"
-                        : "text-gray-300 hover:text-white"
+                          ? "text-black/60 hover:text-black"
+                          : "text-gray-300 hover:text-white"
                     }`}
                   >
                     {item.name}
@@ -220,7 +225,7 @@ const Header = ({ variant = "dark" }) => {
                 filter: "blur(10px)",
               }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed bottom-6 right-6 w-[90vw] md:w-[600px] bg-white rounded-[2.5rem] p-10 md:p-16 z-[80] shadow-2xl origin-bottom-right"
+              className="fixed bottom-6 right-6 w-[90vw] md:w-[600px] bg-white rounded-[2.5rem] p-10 md:p-[clamp(1.5rem,5vh,4rem)] md:max-h-[calc(100vh-3rem)] md:overflow-y-auto z-[80] shadow-2xl origin-bottom-right"
             >
               <button
                 onClick={() => setIsOpen(false)}
@@ -228,7 +233,8 @@ const Header = ({ variant = "dark" }) => {
               >
                 <FiX size={32} />
               </button>
-              <div className="flex flex-col gap-4 mt-8">
+
+              <div className="flex flex-col gap-4 md:gap-[1vh] mt-8 md:mt-[2vh]">
                 {menuItems.map((item) => (
                   <Link
                     key={item.name}
@@ -236,7 +242,7 @@ const Header = ({ variant = "dark" }) => {
                     onClick={() => setIsOpen(false)}
                     className="group flex items-start gap-4 text-black"
                   >
-                    <span className="text-[5.5vw] md:text-[4.5rem] font-black uppercase leading-[0.9] tracking-tighter transition-transform group-hover:translate-x-3 duration-300">
+                    <span className="text-[5.5vw] md:text-[clamp(2.25rem,8vh,4.5rem)] font-black uppercase leading-[0.9] tracking-tighter transition-transform group-hover:translate-x-3 duration-300">
                       {item.name}
                     </span>
                     <span className="text-[10px] md:text-xs font-bold text-black/30 mt-1">
@@ -245,13 +251,18 @@ const Header = ({ variant = "dark" }) => {
                   </Link>
                 ))}
               </div>
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="mt-12 w-full"
+                className="mt-12 md:mt-[3vh] w-full"
               >
-                <Link href="/contact" className="bg-[#0d0d0d] text-white rounded-full py-6 flex items-center justify-center gap-2 group overflow-hidden relative w-full inline-flex">
+                <Link
+                  href="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="bg-[#0d0d0d] text-white rounded-full py-6 md:py-[clamp(1rem,2.5vh,1.5rem)] flex items-center justify-center gap-2 group overflow-hidden relative w-full inline-flex"
+                >
                   <span className="font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs relative z-10">
                     Get In Touch
                   </span>

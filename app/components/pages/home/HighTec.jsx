@@ -193,7 +193,7 @@ const HighTec = () => {
                 autoPlay
                 playsInline
               >
-                <source src="/video/video-5.mp4" type="video/mp4" />
+                <source src="/video/tap-g.mp4" type="video/mp4" />
               </video>
 
               {/* Play Button */}
@@ -225,7 +225,7 @@ const HighTec = () => {
               {/* Close Button */}
               <button
                 onClick={() => setIsOpen(false)}
-                className="absolute top-5 right-5 md:top-8 md:right-8 z-[10000] flex items-center justify-center text-white text-xs font-bold uppercase tracking-widest bg-white/10 border border-white/20 backdrop-blur-md px-5 py-3 rounded-full hover:bg-white/20 transition-all duration-300"
+                className="absolute top-5 right-5 md:top-8 md:right-8 z-[10000] flex items-center cursor-pointer justify-center text-white text-xs font-bold uppercase tracking-widest bg-white/10 border border-white/20 backdrop-blur-md px-5 py-3 rounded-full hover:bg-white/20 transition-all duration-300"
               >
                 Close <span className="ml-2 text-base">×</span>
               </button>
@@ -238,7 +238,7 @@ const HighTec = () => {
                 className="relative z-[9999] w-full max-w-6xl aspect-video rounded-lg overflow-hidden"
               >
                 <video
-                  src="/video/video-5.mp4"
+                  src="/video/tap-g.mp4"
                   controls
                   autoPlay
                   playsInline

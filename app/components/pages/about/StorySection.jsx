@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -10,9 +11,14 @@ if (typeof window !== "undefined") {
 }
 
 /* ================================
-    PARALLAX SPLIT TEXT COMPONENT
+   PARALLAX SPLIT TEXT COMPONENT
 ================================ */
-const ParallaxSplitText = ({ text, className = "", isGrey = false }) => {
+
+const ParallaxSplitText = ({
+  text,
+  className = "",
+  isGrey = false,
+}) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -68,59 +74,80 @@ const ParallaxSplitText = ({ text, className = "", isGrey = false }) => {
 };
 
 /* ================================
-    STORY SECTION COMPONENT
+   STORY SECTION COMPONENT
 ================================ */
+
 const StorySection = () => {
   return (
     <section className="py-10 md:py-24 lg:py-32 px-4 md:px-12 lg:px-20 overflow-hidden">
       <div className="max-w-[1500px] mx-auto text-center">
+
         {/* Small Tagline */}
+
         <div className="flex justify-center items-center gap-4 mb-12 opacity-40">
           <span className="text-[10px] font-black uppercase tracking-[0.4em]">
-            Our Story — SinnexTech — Our Story
+            Our Story — TAP-G — Our Purpose
           </span>
         </div>
 
         {/* Main Headline */}
+
         <div className="mb-12">
           <h2 className="font-monosansnarrow text-[15vw] lg:text-[8.5rem] leading-[0.9] font-black uppercase tracking-wide">
-            <ParallaxSplitText text="Empowering Growth," />
-            <ParallaxSplitText text="Scaling Limits." isGrey={true} />
+
+            <ParallaxSplitText text="Bringing People" />
+
+            <ParallaxSplitText
+              text="Closer Together."
+              isGrey={true}
+            />
+
           </h2>
         </div>
 
         {/* Body Content */}
+
         <div className="max-w-4xl mx-auto space-y-12">
+
           <p className="text-xl md:text-2xl font-medium text-black/70 leading-relaxed tracking-tight">
-            SinnexTech was founded on a simple premise: technology should be a
-            bridge, not a barrier. What began as a specialized development house
-            has transformed into a strategic digital partner, blending
-            high-performance engineering with visionary design to help brands
-            dominate their industry.
+            TAP-G was built around a simple idea: local life becomes
+            better when people feel connected. We bring together
+            international students, local businesses, and communities
+            across Gimhae, South Korea, creating opportunities to
+            discover local places, support small businesses, and
+            experience the city beyond everyday routines.
           </p>
 
           {/* CTA Buttons */}
+
           <div className="flex flex-col md:flex-row items-center justify-center gap-10 pt-4">
+
             <Link
               href="/contact"
               className="group relative w-full sm:w-auto flex items-center justify-center sm:justify-start gap-3 bg-primary text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-[10px] md:text-[11px] font-bold uppercase tracking-widest overflow-hidden transition-all duration-300"
             >
-              <span className="relative z-10">Get In Touch</span>
+              <span className="relative z-10">
+                Get In Touch
+              </span>
+
               <span className="text-lg relative z-10 group-hover:rotate-45 transition-transform duration-500">
                 ✦
               </span>
+
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
             </Link>
 
             <Link
-              href="/projects"
+              href="/explore"
               className="group flex items-center gap-2 text-[10px] md:text-[11px] font-bold uppercase tracking-widest text-black border-b-2 border-black pb-1 hover:opacity-60 transition-opacity"
             >
-              Our Portfolio
+              Explore
+
               <span className="text-base transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
                 ↗
               </span>
             </Link>
+
           </div>
         </div>
       </div>

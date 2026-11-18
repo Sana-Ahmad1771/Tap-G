@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -41,7 +40,7 @@ const ParallaxSplitText = ({ text, className = "", isGrey = false }) => {
           end: "top 70%",
           scrub: 1.2,
         },
-      }
+      },
     );
 
     return () => tl.kill();
@@ -79,14 +78,14 @@ const services = [
     title: "Food Delivery",
     description:
       "From delicious local meals and Korean favorites to burgers, snacks, and refreshing drinks. Discover food you love and have it delivered with ease.",
-    image: "/images/tapscroll1.png",
+    image: "/images/service1.png",
   },
   {
     id: "02",
     title: "Groceries & Essentials",
     description:
       "Your everyday essentials, all in one place. Find fresh produce, milk, packaged goods, snacks, and daily necessities without the extra trip.",
-    image: "/images/service-grocery.jpg",
+    image: "/images/tapscroll2.png",
   },
   {
     id: "03",
@@ -146,7 +145,6 @@ const Services = () => {
   return (
     <section className="bg-black rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[3rem] text-white py-10 md:py-24 lg:py-32 px-4 md:px-12 lg:px-20 overflow-hidden">
       <div className="max-w-[1500px] mx-auto border-t border-white/20">
-
         {/* HEADER SECTION */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16 md:mb-24 pt-6">
           <div className="max-w-9xl">
@@ -155,10 +153,7 @@ const Services = () => {
             </p>
 
             <h2 className="text-[14vw] md:text-[8rem] leading-[0.9] font-black uppercase tracking-tighter">
-              <ParallaxSplitText
-                text="Made For"
-                className="block"
-              />
+              <ParallaxSplitText text="Made For" className="block" />
 
               <ParallaxSplitText
                 text="Everyday Life"
@@ -195,7 +190,6 @@ const Services = () => {
                 className="group relative border-b border-white/20 py-8 md:py-12 lg:py-16 cursor-pointer"
               >
                 <div className="grid grid-cols-1 md:grid-cols-12 items-center gap-4 md:gap-6 relative z-10">
-
                   {/* NUMBER */}
                   <div className="md:col-span-1 text-white/40 font-bold text-sm md:text-base">
                     ({service.id})
@@ -223,12 +217,21 @@ const Services = () => {
                               exit={{ opacity: 0 }}
                               className="absolute inset-0 text-4xl sm:text-5xl md:text-[4.5rem] lg:text-[5rem] font-black uppercase tracking-tighter"
                               style={{
-                                backgroundImage: `url(${service.image})`,
+                                backgroundImage: `
+    linear-gradient(
+      135deg,
+      rgba(8, 8, 8, 0.48) 0%,
+      rgba(137, 116, 235, 0.38) 50%,
+      rgba(8, 8, 8, 0.52) 100%
+    ),
+    url(${service.image})
+  `,
                                 backgroundSize: "cover",
                                 backgroundPosition: `${50 + mouse.x * 120}% ${
                                   50 + mouse.y * 120
                                 }%`,
                                 WebkitBackgroundClip: "text",
+                                backgroundClip: "text",
                                 WebkitTextFillColor: "transparent",
                                 pointerEvents: "none",
                                 zIndex: 21,
@@ -290,7 +293,6 @@ const Services = () => {
                       <FiArrowUpRight className="text-lg md:text-2xl" />
                     </div>
                   </div>
-
                 </div>
               </div>
             );

@@ -53,7 +53,7 @@ const ClientScroll = () => {
                   key={idx}
                   className="shrink-0 flex items-center gap-4 group"
                 >
-                  <span className="text-[#9270ee] text-xl md:text-2xl">
+                  <span className="text-primary text-xl md:text-2xl">
                     ✳
                   </span>
 

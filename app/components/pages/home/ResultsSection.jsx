@@ -162,7 +162,7 @@ const ResultsSection = () => {
               href="/about"
               className="group w-full sm:w-fit relative flex items-center justify-center sm:justify-start gap-3 bg-primary text-white px-10 py-5 rounded-full text-[11px] font-bold uppercase tracking-widest overflow-hidden transition-all duration-300"
             >
-              <span className="relative z-10">Discover TAP-G</span>
+              <span className="relative z-10">Discover</span>
 
               <span className="text-lg relative z-10 group-hover:rotate-45 transition-transform duration-500">
                 ✦
