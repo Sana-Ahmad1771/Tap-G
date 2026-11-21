@@ -12,10 +12,10 @@ const TRAIL_IMAGES = [
   "/images/tapscroll3.png",
 ];
 
-// Hero backgroug images
+// Hero background slideshow images
 const HERO_SLIDES = [
-  "/images/tap-hero11.png",
-  "/images/tap-hero22.png",
+  "/images/tap-hero1.png",
+  "/images/tap-hero2.png",
   "/images/tap-hero3.png",
 ];
 
