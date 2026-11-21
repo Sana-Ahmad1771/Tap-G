@@ -263,9 +263,9 @@ function ProjectPageContent() {
               <Image
                 src={project.gallery[0]}
                 alt={project.title}
-                width={600}
-                height={600}
-                className="object-cover w-full h-full grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out"
+                fill
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out"
               />
 
             </div>
@@ -322,9 +322,9 @@ function ProjectPageContent() {
               ref={centralImageRef}
               src={project.img}
               alt="Main Feature"
-              width={700}
-              height={700}
-              className="object-cover w-full h-full will-change-transform"
+              fill
+              sizes="(max-width: 768px) 100vw, 1500px"
+              className="object-cover will-change-transform"
               style={{ filter: "grayscale(100%)" }}
             />
 
@@ -384,9 +384,9 @@ function ProjectPageContent() {
                   <Image
                     src={project.gallery[idx] || project.gallery[0]}
                     alt={`Gallery ${idx + 1}`}
-                    width={600}
-                    height={600}
-                    className="object-cover w-full h-full will-change-transform"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 42vw"
+                    className="object-cover will-change-transform"
                     style={{
                       filter: "grayscale(80%)",
                       willChange: "transform, filter",
@@ -527,6 +527,7 @@ function ProjectPageContent() {
                       src={item.img}
                       alt={item.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
 

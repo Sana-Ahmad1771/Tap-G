@@ -147,9 +147,9 @@ const AllProjectsCards = () => {
                       <Image
                         src={proj.img}
                         alt={proj.title}
-                        width={700}
-                        height={700}
-                        className="object-cover w-full h-full grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)]"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 66vw, 66vw"
+                        className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)]"
                         priority
                       />
 

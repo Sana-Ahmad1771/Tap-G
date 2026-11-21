@@ -236,8 +236,9 @@ const CaseStudies = () => {
               <Image
                 src={item.img}
                 alt={item.title}
-                width={700}
-                height={700}
+                fill
+                sizes="(max-width: 639px) 85vw, (max-width: 767px) 400px, (max-width: 1023px) 550px, 650px"
+                loading={idx === 0 ? "eager" : undefined}
                 className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-1000"
               />
 
