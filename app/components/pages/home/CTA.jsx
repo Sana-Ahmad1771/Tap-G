@@ -16,7 +16,7 @@ export default function CTA() {
     { src: "/images/service1.jpg", alt: "Food delivery" },
     { src: "/images/service2.jpg", alt: "Groceries and essentials" },
     { src: "/images/service3.jpg", alt: "Drinks and beverages" },
-    { src: "/images/tap-hero1.png", alt: "Everyday essentials" },
+    { src: "/images/tap-hero1.png", alt: "Everydayessentials" },
     { src: "/images/case1.png", alt: "TAP-G local delivery" },
     { src: "/images/tap-hero2.png", alt: "Shopping and groceries" },
     { src: "/images/service4.jpg", alt: "Fresh fruits and vegetables" },
