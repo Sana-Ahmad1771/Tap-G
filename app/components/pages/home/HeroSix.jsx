@@ -2,14 +2,9 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import gsap from "gsap";
 import { IoLogoInstagram } from "react-icons/io";
 import { RiLinkedinFill, RiKakaoTalkFill } from "react-icons/ri";
-
-const DISABLE_MOTION = true;
-
-const MotionAP = DISABLE_MOTION
-  ? ({ children }) => <>{children}</>
-  : AnimatePresence;
 
 const TRAIL_IMAGES = [
   "/images/tapscroll1.png",
@@ -31,12 +26,13 @@ const SOCIAL_LINKS = [
 ];
 
 const Hero = () => {
-  const [images, setImages] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const lastMousePos = useRef({ x: 0, y: 0 });
   const imageCount = useRef(0);
+  const zCount = useRef(1);
   const sectionRef = useRef(null);
+  const trailRef = useRef(null);
 
   // Automatically change background image every 5 seconds
   useEffect(() => {
@@ -46,6 +42,67 @@ const Hero = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  // Preload trail images so they don't pop in, and clean up on unmount
+  useEffect(() => {
+    TRAIL_IMAGES.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+
+    const layer = trailRef.current;
+
+    return () => {
+      if (!layer) return;
+      gsap.killTweensOf(layer.children);
+      layer.innerHTML = "";
+    };
+  }, []);
+
+  // Spawns one image at the cursor and animates it with GSAP
+  const spawnTrailImage = (x, y) => {
+    const layer = trailRef.current;
+    if (!layer) return;
+
+    const img = document.createElement("img");
+    img.src = TRAIL_IMAGES[imageCount.current % TRAIL_IMAGES.length];
+    img.alt = "";
+    img.setAttribute("aria-hidden", "true");
+    img.className =
+      "absolute w-32 h-44 md:w-48 md:h-64 object-cover rounded-xl shadow-2xl border border-white/10 will-change-transform";
+    imageCount.current++;
+
+    layer.appendChild(img);
+
+    // Anchor on the cursor point and center the image on it
+    gsap.set(img, {
+      left: x,
+      top: y,
+      xPercent: -50,
+      yPercent: -50,
+      zIndex: zCount.current++,
+      rotation: gsap.utils.random(-10, 10),
+    });
+
+    gsap
+      .timeline({ onComplete: () => img.remove() })
+      .fromTo(
+        img,
+        { scale: 0.5, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.5, ease: "power3.out" },
+      )
+      .to(
+        img,
+        {
+          scale: 0.8,
+          opacity: 0,
+          filter: "blur(10px)",
+          duration: 0.5,
+          ease: "power2.in",
+        },
+        "+=0.4",
+      );
+  };
 
   const handleMouseMove = (e) => {
     if (!sectionRef.current) return;
@@ -61,23 +118,7 @@ const Hero = () => {
 
     if (distance > 90) {
       lastMousePos.current = { x, y };
-
-      const id = Date.now();
-      const imgIndex = imageCount.current % TRAIL_IMAGES.length;
-      imageCount.current++;
-
-      const newImage = {
-        id,
-        x,
-        y,
-        url: TRAIL_IMAGES[imgIndex],
-      };
-
-      setImages((prev) => [...prev, newImage]);
-
-      setTimeout(() => {
-        setImages((prev) => prev.filter((img) => img.id !== id));
-      }, 1000);
+      spawnTrailImage(x, y);
     }
   };
 
@@ -123,35 +164,11 @@ const Hero = () => {
       </div>
 
       <div className="max-w-[1600px] mx-auto px-3 sm:px-4 md:px-6 lg:px-16 xl:px-24">
-        {/* 2. IMAGE TRAIL OVERLAY */}
-        <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden">
-          <MotionAP>
-            {images.map((img) => (
-              <motion.img
-                key={img.id}
-                src={img.url}
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{
-                  opacity: 1,
-                  scale: 1,
-                  rotate: Math.random() * 20 - 10,
-                }}
-                exit={{
-                  opacity: 0,
-                  scale: 0.8,
-                  filter: "blur(10px)",
-                }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="absolute w-32 h-44 md:w-48 md:h-64 object-cover rounded-xl shadow-2xl border border-white/10"
-                style={{
-                  left: img.x,
-                  top: img.y,
-                  transform: "translate(-50%, -50%)",
-                }}
-              />
-            ))}
-          </MotionAP>
-        </div>
+        {/* 2. GSAP IMAGE TRAIL LAYER (images are created here on mouse move) */}
+        <div
+          ref={trailRef}
+          className="absolute inset-0 pointer-events-none z-20 overflow-hidden"
+        />
 
         {/* 3. EXISTING PURPLE ABSTRACT VECTORS */}
         <div className="absolute inset-0 z-[1] pointer-events-none select-none">

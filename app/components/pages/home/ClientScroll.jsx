@@ -1,16 +1,26 @@
-
 "use client";
 
 import React from "react";
 import { motion } from "framer-motion";
+import {
+  FiShoppingBag,
+  FiTruck,
+  FiUsers,
+  FiPackage,
+  FiCoffee,
+} from "react-icons/fi";
+import { MdSchool } from "react-icons/md";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { HalalIcon } from "@hugeicons/core-free-icons";
 
 const items = [
-  "LOCAL STORES",
-  "FOOD & DRINKS",
-  "GROCERY DELIVERY",
-  "INJE UNIVERSITY",
-  "GIMHAE COMMUNITY",
-  "DAILY ESSENTIALS",
+  { label: "LOCAL STORES", Icon: FiShoppingBag },
+  { label: "FOOD & DRINKS", Icon: FiCoffee },
+  { label: "GROCERY DELIVERY", Icon: FiTruck },
+  { label: "HALALFOOD", hugeIcon: HalalIcon },
+  { label: "INJE UNIVERSITY", Icon: MdSchool },
+  { label: "GIMHAE COMMUNITY", Icon: FiUsers },
+  { label: "DAILY ESSENTIALS", Icon: FiPackage },
 ];
 
 const ClientScroll = () => {
@@ -48,17 +58,23 @@ const ClientScroll = () => {
                 ease: "linear",
               }}
             >
-              {[...items, ...items].map((item, idx) => (
+              {[...items, ...items].map(({ label, Icon, hugeIcon }, idx) => (
                 <div
                   key={idx}
                   className="shrink-0 flex items-center gap-4 group"
                 >
-                  <span className="text-primary text-xl md:text-2xl">
-                    ✳
-                  </span>
+                  {hugeIcon ? (
+                    <HugeiconsIcon
+                      icon={hugeIcon}
+                      size={26}
+                      className="text-primary shrink-0"
+                    />
+                  ) : (
+                    <Icon className="text-primary text-xl md:text-2xl shrink-0" />
+                  )}
 
                   <span className="text-black/50 group-hover:text-black text-xs md:text-sm lg:text-base font-black tracking-[0.12em] whitespace-nowrap transition-colors duration-300">
-                    {item}
+                    {label}
                   </span>
                 </div>
               ))}

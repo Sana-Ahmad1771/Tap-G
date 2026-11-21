@@ -78,42 +78,42 @@ const services = [
     title: "Food Delivery",
     description:
       "From delicious local meals and Korean favorites to burgers, snacks, and refreshing drinks. Discover food you love and have it delivered with ease.",
-    image: "/images/service1.png",
+    image: "/images/fooddelivery1.png",
   },
   {
     id: "02",
     title: "Groceries & Essentials",
     description:
       "Your everyday essentials, all in one place. Find fresh produce, milk, packaged goods, snacks, and daily necessities without the extra trip.",
-    image: "/images/tapscroll2.png",
+    image: "/images/groceries1.png",
   },
   {
     id: "03",
     title: "Campus Delivery",
     description:
       "Making student life easier around Inje University. Get the food and everyday essentials you need, conveniently delivered closer to campus.",
-    image: "/images/service-campus.jpg",
+    image: "/images/campusdelivery.png",
   },
   {
     id: "04",
     title: "Local Discovery",
     description:
       "Explore neighborhood shops, hidden local favorites, and businesses across Gimhae. Discover more of what's around you.",
-    image: "/images/service-discovery.jpg",
+    image: "/images/localdiscovery.png",
   },
   {
     id: "05",
     title: "Express Delivery",
     description:
       "A simpler way to get what you need, when you need it. Convenient delivery designed around your location and everyday schedule.",
-    image: "/images/service-express.jpg",
+    image: "/images/expressdelivery.png",
   },
   {
     id: "06",
     title: "Community Connection",
     description:
       "Connecting students, local businesses, and the wider Gimhae community through local experiences, discovery, and everyday convenience.",
-    image: "/images/service-community.jpg",
+    image: "/images/togethergimhae.png",
   },
 ];
 

@@ -108,11 +108,11 @@ const HighTec = () => {
     isMobile ? ["95%", "100%", "95%"] : ["85%", "100%", "85%"],
   );
 
-  // Responsive video height
+  // Taller frame on mobile so the portrait video isn't tiny
   const height = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    isMobile ? ["30vh", "45vh", "30vh"] : ["40vh", "70vh", "40vh"],
+    isMobile ? ["50vh", "65vh", "50vh"] : ["40vh", "70vh", "40vh"],
   );
 
   const opacity = useTransform(
@@ -183,29 +183,45 @@ const HighTec = () => {
                 opacity,
                 willChange: "transform, width, height",
               }}
-              className="relative cursor-pointer group overflow-hidden rounded-xl md:rounded-3xl shadow-2xl"
+              className="relative cursor-pointer group overflow-hidden rounded-xl md:rounded-3xl shadow-2xl bg-[#080808]"
               onClick={() => setIsOpen(true)}
             >
+              {/* Blurred backdrop: same video, enlarged to fill the wide frame */}
               <video
-                className="w-full h-full object-cover"
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover scale-125 blur-2xl opacity-60 pointer-events-none"
                 muted
                 loop
                 autoPlay
                 playsInline
               >
-                <source src="/video/tap-g.mp4" type="video/mp4" />
+                <source src="/video/finaltap-g.mp4" type="video/mp4" />
+              </video>
+
+              {/* Dark overlay so the portrait video stands out */}
+              <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+
+              {/* Portrait video, centered and never cropped */}
+              <video
+                className="relative z-10 w-full h-full object-contain"
+                muted
+                loop
+                autoPlay
+                playsInline
+              >
+                <source src="/video/finaltap-g.mp4" type="video/mp4" />
               </video>
 
               {/* Play Button */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-primary/60 border border-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-130 transition-all duration-500">
+              <div className="absolute inset-0 z-20 flex items-center justify-center">
+                <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-primary/60 border border-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-130 transition-all duration-500">
                   <div className="w-0 h-0 border-t-[8px] md:border-t-[12px] border-t-transparent border-l-[14px] md:border-l-[20px] border-l-white border-b-[8px] md:border-b-[12px] border-b-transparent ml-1.5 md:ml-2" />
                 </div>
               </div>
 
               {/* Overlay Label */}
-              <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8">
-                <p className="text-[8px] md:text-[10px] uppercase tracking-widest text-white/70 font-bold bg-black/20 backdrop-blur-sm px-3 py-1 rounded-full">
+              <div className="absolute z-20 bottom-4 left-4 md:bottom-8 md:left-8">
+                <p className="text-[8px] md:text-[10px] uppercase tracking-widest text-white/90 font-bold bg-primary/60 backdrop-blur-sm px-3 py-1 rounded-full">
                   Discover Local Life — TAP-G
                 </p>
               </div>
@@ -225,7 +241,7 @@ const HighTec = () => {
               {/* Close Button */}
               <button
                 onClick={() => setIsOpen(false)}
-                className="absolute top-5 right-5 md:top-8 md:right-8 z-[10000] flex items-center cursor-pointer justify-center text-white text-xs font-bold uppercase tracking-widest bg-white/10 border border-white/20 backdrop-blur-md px-5 py-3 rounded-full hover:bg-white/20 transition-all duration-300"
+                className="absolute top-5 right-5 md:top-8 md:right-8 z-[10000] flex items-center cursor-pointer justify-center text-white text-xs font-bold uppercase tracking-widest bg-white/10 border border-white/20 backdrop-blur-md px-4 py-3 rounded-full hover:bg-white/20 transition-all duration-300"
               >
                 Close <span className="ml-2 text-base">×</span>
               </button>
@@ -235,10 +251,10 @@ const HighTec = () => {
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
-                className="relative z-[9999] w-full max-w-6xl aspect-video rounded-lg overflow-hidden"
+                className="relative z-[9999] h-[85vh] max-w-full aspect-[9/16] rounded-xl overflow-hidden bg-black"
               >
                 <video
-                  src="/video/tap-g.mp4"
+                  src="/video/finaltap-g.mp4"
                   controls
                   autoPlay
                   playsInline
